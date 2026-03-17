@@ -1,0 +1,260 @@
+// sopData.js
+
+export const SOP = {
+  contacts: {
+    management: [
+      {
+        department: "Install/Framing/Decks",
+        name: "Jacob Davis",
+        title: "Install Manager",
+        email: "Jacob.Davis@bldr.com",
+        phone: "910-506-9932"
+      },
+      {
+        department: "Safety",
+        name: "Jeff Greer",
+        title: "Safety Manager",
+        email: "Jeff.Greer@bldr.com",
+        phone: "919-208-8871"
+      }
+    ],
+
+    vendors: [
+      {
+        company: "Peak Steel",
+        contact: "Tobi Grindrod",
+        phone: "919-362-5955"
+      },
+      {
+        company: "United Rentals",
+        contact: "Derek Hansen",
+        phone: "919-625-7444"
+      }
+    ],
+
+    crews: [
+      {
+        company: "A. Rodriguez Construction",
+        name: "Alecio Rodriguez",
+        phone: "919-625-1108"
+      }
+    ]
+  },
+
+  sopFlow: [
+    {
+      id: 1,
+      name: "Job Pre-check",
+      tasks: [
+        "Verify site readiness",
+        "Check grading and safety",
+        "Confirm temp power",
+        "Ensure plans in permit box",
+        "Measure foundation steps",
+        "Coordinate material delivery"
+      ]
+    },
+    {
+      id: 2,
+      name: "Pre-Construction Meeting",
+      tasks: [
+        "Review plans with builder",
+        "Redline plan",
+        "Verify windows & doors",
+        "Confirm truss delivery",
+        "Upload redline plans"
+      ]
+    },
+    {
+      id: 3,
+      name: "Framing Start",
+      tasks: [
+        "Block foundation",
+        "Schedule open floor inspection",
+        "Verify slab level",
+        "Document issues"
+      ]
+    },
+    {
+      id: 4,
+      name: "Project Manager Duties",
+      tasks: [
+        "Daily site visits",
+        "Safety checks",
+        "Communication with builder",
+        "Material ordering via Appwright"
+      ]
+    },
+    {
+      id: 5,
+      name: "First Walk",
+      tasks: [
+        "Check windows/doors",
+        "Mark deficiencies",
+        "Verify structure vs plans"
+      ]
+    },
+    {
+      id: 6,
+      name: "Second Walk",
+      tasks: [
+        "Recheck missed items",
+        "Mark trade damage",
+        "Verify bowed studs"
+      ]
+    },
+    {
+      id: 7,
+      name: "Closeout",
+      tasks: [
+        "Final inspection",
+        "Upload reports",
+        "Release final payment"
+      ]
+    }
+  ],
+
+  safety: {
+    inspectionsRequired: 36,
+    rules: [
+      "Daily safety walks required",
+      "Violations must be documented with photos",
+      "PM and subcontractor must sign report"
+    ]
+  },
+
+  policies: {
+    noPower: {
+      generatorRate: "$80/day",
+      max: "$400",
+      rule: "Generator required if no power within 150ft"
+    },
+
+    severeWeather: [
+      "No framing during severe weather",
+      "No truss install during high winds"
+    ],
+
+    extraWork: [
+      "Must be approved before start",
+      "Requires labor ticket",
+      "Submit through Appwright"
+    ],
+
+    backCharge: [
+      "Builder must notify within 24h",
+      "PM must document with photos",
+      "Submit within 60 days"
+    ]
+  },
+
+  inspectionChecklist: [
+    "Permit on site",
+    "Plans match construction",
+    "Anchor bolts installed",
+    "Wall framing per code",
+    "Roof trusses installed correctly"
+  ]
+};
+// server.js
+const express = require("express");
+const app = express();
+app.use(express.json());
+
+let jobs = [];
+
+app.post("/jobs", (req, res) => {
+  const job = {
+    id: Date.now(),
+    name: req.body.name,
+    steps: req.body.steps,
+    safetyReports: [],
+    inspections: [],
+    status: "active"
+  };
+  jobs.push(job);
+  res.json(job);
+});
+
+app.get("/jobs", (req, res) => {
+  res.json(jobs);
+});
+
+app.post("/jobs/:id/safety", (req, res) => {
+  const job = jobs.find(j => j.id == req.params.id);
+  job.safetyReports.push(req.body);
+  res.json(job);
+});
+
+app.post("/jobs/:id/inspection", (req, res) => {
+  const job = jobs.find(j => j.id == req.params.id);
+  job.inspections.push(req.body);
+  res.json(job);
+});
+
+app.listen(3001, () => console.log("Server running"));
+// App.js
+import React, { useState } from "react";
+import { SOP } from "./sopData";
+
+export default function App() {
+  const [jobs, setJobs] = useState([]);
+
+  const createJob = () => {
+    const newJob = {
+      id: Date.now(),
+      name: "New Framing Job",
+      steps: SOP.sopFlow.map(step => ({
+        ...step,
+        completed: false
+      }))
+    };
+    setJobs([...jobs, newJob]);
+  };
+
+  const toggleStep = (jobId, stepId) => {
+    setJobs(jobs.map(job => {
+      if (job.id === jobId) {
+        job.steps = job.steps.map(step =>
+          step.id === stepId
+            ? { ...step, completed: !step.completed }
+            : step
+        );
+      }
+      return job;
+    }));
+  };
+
+  return (
+    <div style={{ padding: 20 }}>
+      <h1>Framing SOP Management App</h1>
+
+      <button onClick={createJob}>Create Job</button>
+
+      {jobs.map(job => (
+        <div key={job.id}>
+          <h2>{job.name}</h2>
+
+          {job.steps.map(step => (
+            <div key={step.id}>
+              <h3>
+                <input
+                  type="checkbox"
+                  checked={step.completed}
+                  onChange={() => toggleStep(job.id, step.id)}
+                />
+                {step.name}
+              </h3>
+
+              <ul>
+                {step.tasks.map((task, i) => (
+                  <li key={i}>{task}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+}
