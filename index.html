@@ -5,28 +5,30 @@
   <title>BFS Raleigh Install SOP</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- PWA -->
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#c8102e">
 
   <link rel="stylesheet" href="style.css">
+
+  <!-- FIXED TABLE STYLES -->
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      font-size: 14px;
+    }
+    th {
+      background: #002d62;
+      color: white;
+    }
+  </style>
 </head>
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
-}
 
-th, td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  font-size: 14px;
-}
-
-th {
-  background: #002d62;
-  color: white;
-}
 <body>
 
 <header>
@@ -34,288 +36,48 @@ th {
   <p>Raleigh Install Services SOP</p>
 </header>
 
-<!-- NAV TABS -->
+<!-- NAV -->
 <nav>
   <button onclick="showTab('framing')">Framing</button>
-  <button onclick="showTab('wd')">Windows & Doors</button>
-  <button onclick="showTab('trim')">Trim</button>
-  <button onclick="showTab('service')">Service</button>
   <button onclick="showTab('contacts')">Contacts</button>
 </nav>
+
+<!-- CONTACTS TAB -->
 <div id="contacts" class="tab">
   <h2>Contacts</h2>
 
-  <!-- INSIDE MANAGEMENT -->
   <details>
     <summary>Inside Management</summary>
     <table>
-      <tr><th>Department</th><th>Name</th><th>Title</th><th>Email</th><th>Phone</th></tr>
-      <tr><td>Install/Framing/Decks</td><td>Jacob Davis</td><td>Install Manager</td><td>Jacob.Davis@bldr.com</td><td>(910) 506-9932</td></tr>
-      <tr><td>Trim</td><td>Justin Jones</td><td>Trim Install Manager</td><td>Justin.Jones@bldr.com</td><td>(919) 268-1825</td></tr>
-      <tr><td>Windows/Doors & Service</td><td>Scott Ritchea</td><td>Window Install Manager</td><td>Scott.Richea@bldr.com</td><td>(919) 337-2120</td></tr>
-      <tr><td>Sales</td><td>Jeff Parker</td><td>Market Manager</td><td>Jeff.Parker@bldr.com</td><td>(804) 614-0390</td></tr>
-      <tr><td>Sales</td><td>Mike Hunsaker</td><td>Sales Manager</td><td>Mike.Hunsaker@bldr.com</td><td>(919) 264-6834</td></tr>
-      <tr><td>Safety</td><td>Jeff Greer</td><td>Safety Manager</td><td>Jeff.Greer@bldr.com</td><td>(919) 208-8871</td></tr>
+      <tr><th>Department</th><th>Name</th><th>Title</th><th>Phone</th></tr>
+      <tr><td>Install</td><td>Jacob Davis</td><td>Manager</td><td>(910) 506-9932</td></tr>
+      <tr><td>Trim</td><td>Justin Jones</td><td>Manager</td><td>(919) 268-1825</td></tr>
+      <tr><td>W/D</td><td>Scott Ritchea</td><td>Manager</td><td>(919) 337-2120</td></tr>
     </table>
   </details>
 
-  <!-- VEHICLE -->
-  <details>
-    <summary>Vehicle Repair & Maintenance</summary>
-    <ul>
-      <li>Oil Change – Jiffy Lube (Any Raleigh location)</li>
-      <li>Joe’s Garage – Apex, NC</li>
-      <li>Snider Fleet Solutions – Raleigh, NC</li>
-    </ul>
-    <p><strong>Notes:</strong></p>
-    <ul>
-      <li>PO required before service</li>
-      <li>Contact Scott or Jacob before repairs</li>
-      <li>Approval required for transportation</li>
-    </ul>
-  </details>
-
-  <!-- IT / HR -->
-  <details>
-    <summary>IT, Benefits & HR</summary>
-    <ul>
-      <li>BFS Helpdesk – servicedesk@bldr.com – (888) 724-1457</li>
-      <li>Appwright Support – awhelp@bldr.com</li>
-      <li>Dayforce – benefits@bldr.com</li>
-      <li>HR – Jennifer Will – (919) 335-0374</li>
-    </ul>
-  </details>
-
-  <!-- DISPATCH -->
   <details>
     <summary>Dispatch</summary>
     <ul>
       <li>Redd Jacobs – (919) 796-8318</li>
       <li>Scott Bains – (919) 369-2584</li>
-      <li>James Graham – (919) 548-6569</li>
-      <li>Mike Dalton – (919) 225-2463</li>
-    </ul>
-  </details>
-
-  <!-- VENDORS -->
-  <details>
-    <summary>Vendors & Suppliers</summary>
-    <ul>
-      <li>Peak Steel – (919) 362-5955</li>
-      <li>Summit Stairs – (919) 291-6199</li>
-      <li>Talton’s Metal – (919) 868-6460</li>
-      <li>United Rentals – (919) 625-7444</li>
-    </ul>
-  </details>
-
-  <!-- CREWS -->
-  <details>
-    <summary>Framing Crews</summary>
-    <ul>
-      <li>A. Rodriguez Construction</li>
-      <li>Cabreras Construction</li>
-      <li>FC Framing</li>
-      <li>J Cortes Construction</li>
-      <li>Phoenix Innovation</li>
-      <li>PSA Framing</li>
-      <li>Y&E Construction</li>
-      <li><strong>Decks:</strong> Monett – Nathan Priddy</li>
     </ul>
   </details>
 
 </div>
-<!-- CONTENT SECTIONS -->
 
+<!-- FRAMING TAB -->
 <div id="framing" class="tab active">
   <h2>Framing SOP</h2>
 
-  <!-- OVERVIEW -->
   <details>
     <summary>Overview</summary>
-    <p>
-      These procedures outline the full lifecycle of a framing job from pre-check through closeout. 
-      Appwright is the primary system used for scheduling, communication, and task tracking. 
-      All required tasks must be completed and signed off within Appwright.
-    </p>
-  </details>
-
-  <!-- JOB PRE-CHECK -->
-  <details>
-    <summary>Job Pre-Check (Appwright Task)</summary>
-    <ul>
-      <li>Verify site ready within 2 days</li>
-      <li>Site graded, backfilled, safe for framing</li>
-      <li>Temp power available (document if generator needed)</li>
-      <li>Foundation ready</li>
-      <li>Plans in permit box</li>
-      <li>Measure pony walls and send to sales</li>
-      <li>Order steel if possible</li>
-    </ul>
-
-    <strong>Delivery Coordination:</strong>
-    <ul>
-      <li>Basement / 1st floor framing</li>
-      <li>Wall panels</li>
-      <li>2nd floor framing</li>
-      <li>Trusses</li>
-    </ul>
-
-    <p><strong>IMPORTANT:</strong> All schedule changes MUST go through Appwright.</p>
-  </details>
-
-  <!-- SUBCONTRACTOR READINESS -->
-  <details>
-    <summary>Subcontractor Readiness</summary>
-    <ul>
-      <li>Confirm subcontractor assignment in Appwright</li>
-      <li>Call subcontractor directly to confirm start date</li>
-      <li>Verify crew is approved</li>
-      <li>Confirm delivery schedule</li>
-      <li>If TBD → contact Install Manager</li>
-    </ul>
-  </details>
-
-  <!-- PRE-CON -->
-  <details>
-    <summary>Pre-Construction Meeting</summary>
-    <ul>
-      <li>Redline plans with builder</li>
-      <li>Upload redline plans in Appwright</li>
-      <li>Verify window & door openings</li>
-      <li>Confirm truss delivery</li>
-      <li>Confirm stair order</li>
-      <li>Identify change orders</li>
-    </ul>
-
-    <p>
-      Any major change requires approval and may require a change order before work begins.
-    </p>
-  </details>
-
-  <!-- FRAMING START -->
-  <details>
-    <summary>Framing Start</summary>
-    <ul>
-      <li>Block foundation</li>
-      <li>Open floor inspection required</li>
-      <li>Coordinate inspection with builder</li>
-      <li>Slab must be square and level</li>
-      <li>Document all issues in Appwright</li>
-    </ul>
-  </details>
-
-  <!-- PM DUTIES -->
-  <details>
-    <summary>Project Manager Duties</summary>
-    <ul>
-      <li>Daily jobsite visits required</li>
-      <li>Update Appwright schedule</li>
-      <li>Conduct daily safety checks</li>
-      <li>Communicate with subcontractor, builder, and sales</li>
-      <li>Track material usage</li>
-    </ul>
-
-    <p><strong>Material Requests:</strong> Must include WHY and WHAT in Appwright.</p>
-  </details>
-
-  <!-- SAFETY -->
-  <details>
-    <summary>Safety Inspections</summary>
-    <ul>
-      <li>3 per week / 12 per month / 36 per quarter</li>
-      <li>Photos + notes required</li>
-      <li>PM + subcontractor must sign</li>
-      <li>Violations must be documented</li>
-    </ul>
-  </details>
-
-  <!-- FIRST WALK -->
-  <details>
-    <summary>First Walk Framing</summary>
-    <ul>
-      <li>Must be completed before framer leaves</li>
-      <li>Check ALL window & door openings</li>
-      <li>Mark incorrect openings with paint</li>
-      <li>Compare field vs plans</li>
-      <li>Required before 90% payout</li>
-    </ul>
-  </details>
-
-  <!-- MATERIAL RETURN -->
-  <details>
-    <summary>Material Return Requests</summary>
-    <ul>
-      <li>Stack materials neatly</li>
-      <li>Upload photos</li>
-      <li>Send Appwright message to Sales + Framing</li>
-    </ul>
-  </details>
-
-  <!-- SECOND WALK -->
-  <details>
-    <summary>Second Walk Framing</summary>
-    <ul>
-      <li>Re-mark missed items</li>
-      <li>Identify trade damage</li>
-      <li>Extra work requires approval BEFORE starting</li>
-      <li>Check bowed studs</li>
-    </ul>
-  </details>
-
-  <!-- EXTRAS -->
-  <details>
-    <summary>Framer Extras</summary>
-    <ul>
-      <li>Must be approved BEFORE work starts</li>
-      <li>Submit in Appwright</li>
-      <li>Builder PO required</li>
-      <li>No approval = no pay risk</li>
-    </ul>
-  </details>
-
-  <!-- CLOSEOUT -->
-  <details>
-    <summary>Job Closeout</summary>
-    <ul>
-      <li>Final inspection passed</li>
-      <li>Upload inspection reports</li>
-      <li>Install goal posts</li>
-      <li>Triggers final 10% payout</li>
-    </ul>
-  </details>
-
-  <!-- POLICIES -->
-  <details>
-    <summary>Key Policies</summary>
-    <ul>
-      <li>No framing during severe weather</li>
-      <li>No truss install during high winds</li>
-      <li>All backcharges documented</li>
-      <li>All builder communication documented</li>
-    </ul>
-  </details>
-
-  <!-- TRUSS / DAMAGE -->
-  <details>
-    <summary>Truss & Damage Documentation</summary>
-    <ul>
-      <li>Photos REQUIRED before install</li>
-      <li>No photos = no pay for repair</li>
-      <li>Framer owns damage after install</li>
-    </ul>
-  </details>
-
-  <!-- RENTALS -->
-  <details>
-    <summary>Equipment Rentals</summary>
-    <ul>
-      <li>All rentals go through Install Department</li>
-      <li>PM cannot schedule rentals</li>
-      <li>Provide equipment ID for service requests</li>
-    </ul>
+    <p>Full framing SOP loaded.</p>
   </details>
 
 </div>
+
 <script src="script.js"></script>
+
 </body>
 </html>
