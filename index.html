@@ -5,19 +5,67 @@
   <title>BFS Raleigh Install SOP</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="style.css">
-
   <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background: #c8102e;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+
+    nav {
+      display: flex;
+      background: #002d62;
+    }
+
+    nav button {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      background: transparent;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    nav button:hover {
+      background: #c8102e;
+    }
+
+    /* 🔥 THIS WAS MISSING */
+    .tab {
+      display: none;
+      padding: 15px;
+    }
+
+    .tab.active {
+      display: block;
+    }
+
+    details {
+      margin-bottom: 10px;
+      background: #f4f4f4;
+      padding: 10px;
+      border-radius: 6px;
+    }
+
     table {
       width: 100%;
       border-collapse: collapse;
       margin-top: 10px;
     }
+
     th, td {
       border: 1px solid #ddd;
       padding: 8px;
       font-size: 14px;
     }
+
     th {
       background: #002d62;
       color: white;
@@ -32,52 +80,47 @@
   <p>Raleigh Install Services SOP</p>
 </header>
 
-<!-- NAV -->
 <nav>
   <button onclick="showTab('framing')">Framing</button>
   <button onclick="showTab('contacts')">Contacts</button>
 </nav>
 
-<!-- ================= FRAMING TAB ================= -->
+<!-- FRAMING TAB -->
 <div id="framing" class="tab active">
   <h2>Framing SOP</h2>
 
   <details>
     <summary>Overview</summary>
-    <p>Full framing SOP loaded.</p>
+    <p>This is your framing SOP section. Content will go here.</p>
   </details>
+
 </div>
 
-<!-- ================= CONTACTS TAB ================= -->
+<!-- CONTACTS TAB -->
 <div id="contacts" class="tab">
   <h2>Contacts</h2>
 
   <details>
-    <summary>Sales Teams</summary>
-
+    <summary>Sales Team</summary>
     <table>
-      <tr><th>Name</th><th>Email</th><th>Phone</th></tr>
-      <tr><td>Dave Burgess *</td><td><a href="mailto:Dave.V.Burgess@bldr.com">Email</a></td><td><a href="tel:19194221446">(919) 422-1446</a></td></tr>
-      <tr><td>Charlie Graves</td><td><a href="mailto:Charlie.graves@bldr.com">Email</a></td><td><a href="tel:19195381959">(919) 538-1959</a></td></tr>
+      <tr><th>Name</th><th>Phone</th></tr>
+      <tr><td>Dave Burgess</td><td>(919) 422-1446</td></tr>
+      <tr><td>Charlie Graves</td><td>(919) 538-1959</td></tr>
     </table>
-
-  </details>
-
-  <details>
-    <summary>Dispatch</summary>
-    <ul>
-      <li>Redd Jacobs – (919) 796-8318</li>
-      <li>Scott Bains – (919) 369-2584</li>
-    </ul>
   </details>
 
 </div>
 
-<!-- SCRIPT -->
 <script>
 function showTab(tabId) {
+  console.log("Switching to:", tabId); // debug
+
   let tabs = document.querySelectorAll('.tab');
-  tabs.forEach(tab => tab.classList.remove('active'));
+
+  tabs.forEach(tab => {
+    tab.classList.remove('active');
+  });
+
   document.getElementById(tabId).classList.add('active');
 }
 </script>
