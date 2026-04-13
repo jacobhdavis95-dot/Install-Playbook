@@ -11,7 +11,22 @@
 
   <link rel="stylesheet" href="style.css">
 </head>
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
 
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  font-size: 14px;
+}
+
+th {
+  background: #002d62;
+  color: white;
+}
 <body>
 
 <header>
@@ -25,8 +40,90 @@
   <button onclick="showTab('wd')">Windows & Doors</button>
   <button onclick="showTab('trim')">Trim</button>
   <button onclick="showTab('service')">Service</button>
+  <button onclick="showTab('contacts')">Contacts</button>
 </nav>
+<div id="contacts" class="tab">
+  <h2>Contacts</h2>
 
+  <!-- INSIDE MANAGEMENT -->
+  <details>
+    <summary>Inside Management</summary>
+    <table>
+      <tr><th>Department</th><th>Name</th><th>Title</th><th>Email</th><th>Phone</th></tr>
+      <tr><td>Install/Framing/Decks</td><td>Jacob Davis</td><td>Install Manager</td><td>Jacob.Davis@bldr.com</td><td>(910) 506-9932</td></tr>
+      <tr><td>Trim</td><td>Justin Jones</td><td>Trim Install Manager</td><td>Justin.Jones@bldr.com</td><td>(919) 268-1825</td></tr>
+      <tr><td>Windows/Doors & Service</td><td>Scott Ritchea</td><td>Window Install Manager</td><td>Scott.Richea@bldr.com</td><td>(919) 337-2120</td></tr>
+      <tr><td>Sales</td><td>Jeff Parker</td><td>Market Manager</td><td>Jeff.Parker@bldr.com</td><td>(804) 614-0390</td></tr>
+      <tr><td>Sales</td><td>Mike Hunsaker</td><td>Sales Manager</td><td>Mike.Hunsaker@bldr.com</td><td>(919) 264-6834</td></tr>
+      <tr><td>Safety</td><td>Jeff Greer</td><td>Safety Manager</td><td>Jeff.Greer@bldr.com</td><td>(919) 208-8871</td></tr>
+    </table>
+  </details>
+
+  <!-- VEHICLE -->
+  <details>
+    <summary>Vehicle Repair & Maintenance</summary>
+    <ul>
+      <li>Oil Change – Jiffy Lube (Any Raleigh location)</li>
+      <li>Joe’s Garage – Apex, NC</li>
+      <li>Snider Fleet Solutions – Raleigh, NC</li>
+    </ul>
+    <p><strong>Notes:</strong></p>
+    <ul>
+      <li>PO required before service</li>
+      <li>Contact Scott or Jacob before repairs</li>
+      <li>Approval required for transportation</li>
+    </ul>
+  </details>
+
+  <!-- IT / HR -->
+  <details>
+    <summary>IT, Benefits & HR</summary>
+    <ul>
+      <li>BFS Helpdesk – servicedesk@bldr.com – (888) 724-1457</li>
+      <li>Appwright Support – awhelp@bldr.com</li>
+      <li>Dayforce – benefits@bldr.com</li>
+      <li>HR – Jennifer Will – (919) 335-0374</li>
+    </ul>
+  </details>
+
+  <!-- DISPATCH -->
+  <details>
+    <summary>Dispatch</summary>
+    <ul>
+      <li>Redd Jacobs – (919) 796-8318</li>
+      <li>Scott Bains – (919) 369-2584</li>
+      <li>James Graham – (919) 548-6569</li>
+      <li>Mike Dalton – (919) 225-2463</li>
+    </ul>
+  </details>
+
+  <!-- VENDORS -->
+  <details>
+    <summary>Vendors & Suppliers</summary>
+    <ul>
+      <li>Peak Steel – (919) 362-5955</li>
+      <li>Summit Stairs – (919) 291-6199</li>
+      <li>Talton’s Metal – (919) 868-6460</li>
+      <li>United Rentals – (919) 625-7444</li>
+    </ul>
+  </details>
+
+  <!-- CREWS -->
+  <details>
+    <summary>Framing Crews</summary>
+    <ul>
+      <li>A. Rodriguez Construction</li>
+      <li>Cabreras Construction</li>
+      <li>FC Framing</li>
+      <li>J Cortes Construction</li>
+      <li>Phoenix Innovation</li>
+      <li>PSA Framing</li>
+      <li>Y&E Construction</li>
+      <li><strong>Decks:</strong> Monett – Nathan Priddy</li>
+    </ul>
+  </details>
+
+</div>
 <!-- CONTENT SECTIONS -->
 
 <div id="framing" class="tab active">
