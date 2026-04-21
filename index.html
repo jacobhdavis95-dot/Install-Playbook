@@ -840,7 +840,20 @@
 <p><strong>QUALITY CONTROL COMPLETED BY:</strong></p>
 <p>NAME: _____________________________ &nbsp;&nbsp; DATE: __________________</p>
 <p>SIGNATURE: ________________________</p>
-<details>
+
+<script>
+function showTab(tabId) {
+  console.log("Switching to:", tabId); // debug
+
+  let tabs = document.querySelectorAll('.tab');
+
+  tabs.forEach(tab => {
+    tab.classList.remove('active');
+  });
+
+  document.getElementById(tabId).classList.add('active');
+}
+  <details>
   <summary><strong>Deck Install Process</strong></summary>
 
   <h3>Scheduling</h3>
@@ -1142,18 +1155,6 @@
   The framing project manager should not communicate directly with the homeowner regarding payment.
 </p>
 </details>
-<script>
-function showTab(tabId) {
-  console.log("Switching to:", tabId); // debug
-
-  let tabs = document.querySelectorAll('.tab');
-
-  tabs.forEach(tab => {
-    tab.classList.remove('active');
-  });
-
-  document.getElementById(tabId).classList.add('active');
-}
 </script>
 
 </body>
