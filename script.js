@@ -1,9 +1,9 @@
 function showTab(tabId) {
-  let tabs = document.querySelectorAll('.tab');
+ const tabs = document.querySelectorAll('.tab');
+  tabs.forEach((tab) => tab.classList.remove('active'));
 
-  tabs.forEach(tab => {
-    tab.classList.remove('active');
-  });
-
-  document.getElementById(tabId).classList.add('active');
+const nextTab = document.getElementById(tabId);
+  if (nextTab) {
+    nextTab.classList.add('active');
+  }
 }
