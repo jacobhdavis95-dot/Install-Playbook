@@ -5,11 +5,12 @@ body {
 }
 
 /* HEADER */
-header {
-  background: #c8102e; /* BFS Red */
-  color: white;
-  text-align: center;
-  padding: 15px;
+.hero-header {
+  width: 100%;
+  height: 260px;
+  background: 
+    linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)),
+    url('header.png') center/cover no-repeat;
 }
 
 /* NAV */
