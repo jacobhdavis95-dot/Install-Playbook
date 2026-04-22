@@ -14,23 +14,31 @@ body {
 }
 
 /* NAV */
+/* NAV */
 nav {
   display: flex;
   overflow-x: auto;
-  background: #002d62; /* BFS Navy */
+  background: #0a2f5a; /* deeper navy */
+  border-top: 3px solid #c8102e;
 }
 
 nav button {
   flex: 1;
-  padding: 12px;
+  padding: 14px;
   border: none;
   color: white;
   background: transparent;
   font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  cursor: pointer;
 }
 
 nav button:hover {
   background: #c8102e;
+  nav {
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
 }
 
 /* CONTENT */
