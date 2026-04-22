@@ -5,6 +5,9 @@
   <title>BFS Raleigh Install SOP</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- LUCIDE ICONS -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
   <style>
     body { margin: 0; font-family: Arial, sans-serif; }
 
@@ -14,8 +17,55 @@
       text-align: center;
       padding: 15px;
     }
-<script src="https://unpkg.com/lucide@latest"></script>
- <nav>
+
+    nav {
+      display: flex;
+      overflow-x: auto;
+      background: #002d62;
+    }
+
+    nav button {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      color: white;
+      background: transparent;
+      font-weight: bold;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    nav button:hover {
+      background: #c8102e;
+    }
+
+    .tab {
+      display: none;
+      padding: 15px;
+    }
+
+    .tab.active {
+      display: block;
+    }
+
+    details {
+      background: white;
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    summary {
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+<nav>
   <button onclick="showTab('framing')">
     <i data-lucide="home"></i>
     <span>Framing</span>
@@ -41,7 +91,6 @@
     <span>Contacts</span>
   </button>
 </nav>
-
 <!-- FRAMING TAB -->
 <div id="framing" class="tab active">
   <h2>Framing SOP</h2>
@@ -3283,5 +3332,14 @@ All issues must be entered into Appwright for proper direction from Install Mana
 <script>
   lucide.createIcons();
 </script>
+  <script>
+function showTab(tabId) {
+  let tabs = document.querySelectorAll('.tab');
+  tabs.forEach(tab => tab.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+}
+</script>
+</body>
+</html>
     </body>
 </html>
