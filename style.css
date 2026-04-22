@@ -11,6 +11,8 @@ body {
   background: 
     linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)),
     url('Install App Header Photo.png') center/cover no-repeat;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
     url('header.jpg') center/cover no-repeat;
 }
 
@@ -49,6 +51,7 @@ nav button span {
 nav button:hover {
   background: #c8102e;
 }
+
 /* CONTENT */
 .tab {
   display: none;
