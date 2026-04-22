@@ -11,6 +11,7 @@ body {
   background: 
     linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)),
     url('Install App Header Photo.png') center/cover no-repeat;
+    url('header.jpg') center/cover no-repeat;
 }
 
 nav {
@@ -35,6 +36,7 @@ nav button {
   gap: 4px;
 }
 
+nav button i {
 nav button i {
   width: 22px;
   height: 22px;
