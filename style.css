@@ -1,31 +1,45 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f4f4f4;
+  font-family: "Inter", Arial, sans-serif;
+  color: #10243f;
+  background: #eef3f8;
 }
 
 /* HEADER */
 .hero-header {
   width: 100%;
-  height: 260px;
+ height: clamp(220px, 34vw, 340px);
   box-sizing: border-box;
- background: url('header.png') center/cover no-repeat;
+   background:
+    linear-gradient(to bottom, rgba(7, 23, 45, 0.05), rgba(7, 23, 45, 0.42)),
+    url('header.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 24%;
+  border-bottom: 4px solid #c8102e;
 }
 
 nav {
   display: flex;
-  background: #0a2f5a;
-  border-top: 3px solid #c8102e;
+   background: #0f2f57;
+  border-top: 2px solid #dc2040;
+  box-shadow: 0 3px 12px rgba(9, 35, 66, 0.25);
+  position: sticky;
+  top: 0;
+  z-index: 50;
 }
 
 nav button {
   flex: 1;
-  padding: 12px;
+   min-height: 74px;
+  padding: 10px 8px;
   border: none;
-  color: white;
+  color: #f3f7fc;
   background: transparent;
-  font-weight: bold;
+  font-weight: 700;
   cursor: pointer;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background-color 180ms ease, color 180ms ease;
 
   display: flex;
   flex-direction: column;
@@ -35,22 +49,35 @@ nav button {
 }
 
 nav button i {
-  width: 22px;
-  height: 22px;
+ width: 20px;
+  height: 20px;
 }
 
 nav button span {
   font-size: 12px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
 nav button:hover {
-  background: #c8102e;
+  background: #173f70;
+}
+
+nav button.active {
+  color: #ffffff;
+  background: linear-gradient(180deg, #e03552, #c8102e);
+  box-shadow: inset 0 -4px 0 rgba(255, 255, 255, 0.24);
+}
+
+nav button:last-child {
+  border-right: none;
 }
 
 /* CONTENT */
 .tab {
   display: none;
-  padding: 15px;
+    padding: 16px;
 }
 
 .tab.active {
@@ -59,15 +86,18 @@ nav button:hover {
 
 /* SOP SECTIONS */
 details {
-  background: white;
-  margin-bottom: 10px;
-  padding: 10px;
-  border-radius: 8px;
+  background: #ffffff;
+  margin-bottom: 12px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #d7e0eb;
+  box-shadow: 0 2px 8px rgba(6, 31, 59, 0.06);
 }
 
 summary {
-  font-weight: bold;
+  font-weight: 700;
   cursor: pointer;
+    color: #0f2f57;
 }
 
 .hero-header h1 {
@@ -80,10 +110,12 @@ summary {
 }
 
 .overview-section {
-  background: white;
-  margin-bottom: 10px;
-  padding: 10px;
-  border-radius: 8px;
+  background: #ffffff;
+  margin-bottom: 12px;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #d7e0eb;
+  box-shadow: 0 2px 8px rgba(6, 31, 59, 0.06);
 }
 
 details > summary {
@@ -126,7 +158,7 @@ details > summary {
 }
 
 .data-table th {
-  background: #f2f2f2;
+background: #e9f0f8;
 }
 
 
@@ -151,5 +183,17 @@ details > summary {
 }
 
 #safety th {
-  background: #f2f2f2;
+    background: #e9f0f8;
+}
+
+h2,
+h3,
+h4 {
+  color: #0d2a4d;
+}
+
+p,
+li {
+  font-size: 15px;
+  line-height: 1.48;
 }
