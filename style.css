@@ -92,3 +92,28 @@ details > summary {
   padding: 0;
   }
 }
+
+
+.osha-alert {
+  color: #c8102e;
+  font-weight: 700;
+}
+
+#safety table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 16px;
+  background: #fff;
+}
+
+#safety th,
+#safety td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+  vertical-align: top;
+}
+
+#safety th {
+  background: #f2f2f2;
+}
