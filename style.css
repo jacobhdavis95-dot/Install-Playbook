@@ -8,13 +8,16 @@ body {
 /* HEADER */
 .hero-header {
   width: 100%;
- height: clamp(220px, 34vw, 340px);
+  height: clamp(180px, 34vw, 340px);
   box-sizing: border-box;
-  background-image: url('header.png'); 
-  background-size: cover;
-  background-repeat: no-repeat;
- background-position: center center;
   border-bottom: 4px solid #c8102e;
+}
+
+.hero-header-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 nav {
@@ -194,4 +197,31 @@ p,
 li {
   font-size: 15px;
   line-height: 1.48;
+}
+
+
+#contacts .data-table {
+  table-layout: fixed;
+}
+
+#contacts .data-table th,
+#contacts .data-table td {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 900px) {
+  #contacts .data-table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: normal;
+  }
+
+  #contacts .data-table th,
+  #contacts .data-table td {
+    min-width: 120px;
+    font-size: 13px;
+  }
 }
