@@ -93,6 +93,17 @@ details > summary {
 
 }
 
+.builder-requirements-section {
+  border: 2px solid #c8102e;
+  background: #fff5f7;
+  box-shadow: 0 4px 12px rgba(200, 16, 46, 0.15);
+}
+
+.builder-requirements-section > summary {
+  color: #7f0f24;
+  font-size: 1.05rem;
+}
+
 .data-table {
   width: 100%;
   border-collapse: collapse;
