@@ -14,6 +14,7 @@ body {
   background: #0f2f57;
   position: relative;
   overflow: hidden;
+  margin-top: 3in;
 }
 
 .hero-header::after {
@@ -47,13 +48,6 @@ body {
 .hero-logo {
   width: min(540px, 62vw);
   filter: drop-shadow(0 3px 12px rgba(0, 0, 0, 0.32));
-}
-
-.hero-market {
-  margin: 0;
-  letter-spacing: 0.2em;
-  font-weight: 700;
-  color: #f1f4f8;
 }
 
 nav {
@@ -135,14 +129,6 @@ summary {
   font-weight: 700;
   cursor: pointer;
     color: #0f2f57;
-}
-
-.hero-header h1 {
-  margin: 0;
-  color: #fff;
-    font-size: clamp(22px, 2.8vw, 52px);
-  text-align: center;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
 }
 
 .overview-section {
