@@ -14,7 +14,6 @@ body {
   background: #0f2f57;
   position: relative;
   overflow: hidden;
-  margin-top: 3in;
 }
 
 .hero-header::after {
