@@ -127,6 +127,11 @@ details > summary {
 
 }
 
+#framing details > summary,
+#framing details > summary strong {
+  font-weight: 800;
+}
+
 .builder-requirements-section {
   border: 2px solid #c8102e;
   background: #fff5f7;
