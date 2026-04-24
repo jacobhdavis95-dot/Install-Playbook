@@ -11,12 +11,17 @@ body {
   height: clamp(180px, 34vw, 340px);
   box-sizing: border-box;
   border-bottom: 4px solid #c8102e;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
 }
 
 .hero-header-image {
-  width: 100%;
+ width: min(100%, 1200px);
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
 
