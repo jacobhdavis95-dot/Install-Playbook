@@ -96,6 +96,22 @@ nav button:last-child {
 }
 
 /* SOP SECTIONS */
+
+.service-audience-note {
+  background: #fff5f7;
+  border: 2px solid #c8102e;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(6, 31, 59, 0.06);
+  margin-bottom: 12px;
+  padding: 14px;
+}
+
+.service-audience-note p {
+  color: #7f0f24;
+  font-weight: 700;
+  margin: 0;
+}
+
 details {
   background: #ffffff;
   margin-bottom: 12px;
