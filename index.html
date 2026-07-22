@@ -39,6 +39,11 @@
     <span>Trim</span>
   </button>
 
+ <button class="tab-btn" data-tab="services" onclick="showTab('services')">
+    <i data-lucide="wrench"></i>
+    <span>Services</span>
+  </button>
+  
    <button class="tab-btn" data-tab="safety" onclick="showTab('safety')">
     <i data-lucide="shield-check"></i>
     <span>Safety</span>
@@ -3443,6 +3448,184 @@ ROOF:
     <p><a href="https://bfsbaynes.github.io/bfs-door-takeoff/index.html" target="_blank" rel="noopener noreferrer">Material Take Off App</a></p>
 </div>
 
+
+<div id="services" class="tab">
+  <h2>Services</h2>
+
+  <details class="overview-section" open>
+    <summary><strong>Purchase Orders &amp; Material Ordering</strong></summary>
+
+    <details>
+      <summary><strong>Creating a Purchase Order (PO) Number</strong></summary>
+      <p><strong>GL Code:</strong> 77900 (Always)</p>
+      <h4>Navigation</h4>
+      <ul>
+        <li>Purchase / Receiving</li>
+        <li>Purchase Orders</li>
+        <li>PO Log</li>
+        <li>Add / Change / Delete</li>
+      </ul>
+      <h4>Steps</h4>
+      <ol>
+        <li>Select A (Add).</li><li>Press Enter.</li><li>Enter the Vendor ID.</li><li>Press Enter twice.</li><li>Type E.</li><li>Press Enter.</li><li>Type I.</li><li>Press Esc.</li><li>Record the generated PO Number.</li><li>Delete the temporary log entry if required.</li>
+      </ol>
+    </details>
+
+    <details>
+      <summary><strong>Placing a Material Order</strong></summary>
+      <h4>Navigation</h4>
+      <ul><li>Purchase / Receiving</li><li>Purchase Orders</li><li>Add / Change / Delete Expense PO</li></ul>
+      <h4>Steps</h4>
+      <ol><li>Select A (Add).</li><li>Press Enter.</li><li>Press Enter twice.</li><li>Enter the PO Number.</li><li>Enter the Date (week out).</li><li>Press Enter (10 times).</li><li>Enter N/A for Ship Via.</li><li>Press Enter.</li><li>Select N (Confirmation Only).</li><li>Press Enter twice.</li><li>Enter Door Parts (Priced By).</li><li>Press Enter twice.</li><li>Enter 77900 for the Item ID.</li><li>Press Enter.</li><li>Enter the Quantity.</li><li>Press Enter.</li><li>Enter .001.</li><li>Enter the material Description.</li><li>Press Esc until finished.</li></ol>
+    </details>
+
+    <details>
+      <summary><strong>Emailing the Purchase Order</strong></summary>
+      <h4>Reprint the PO</h4>
+      <ol><li>Select Reprint PO.</li><li>Press Y.</li><li>Press Y.</li><li>Enter BFS.</li><li>Press Esc twice.</li><li>Press Esc twice again.</li><li>Enter the PO Number.</li><li>Press Esc.</li><li>The PO will be sent to your email.</li></ol>
+      <h4>Email Template</h4>
+      <p><strong>Subject:</strong> PO # _______</p>
+      <p><strong>Email Body</strong></p>
+      <p>Good Morning,</p>
+      <p>Please send the attached PO (#_______) to 3000 Yonkers Rd., Raleigh.</p>
+      <p>ATTN: Triancos</p>
+      <p>Could you please send an order acknowledgment so we can update our records?</p>
+      <p>Thank you,</p>
+    </details>
+
+    <details>
+      <summary><strong>Updating the Online Order</strong></summary>
+      <h4>Navigation</h4>
+      <ul><li>Purchase / Receiving</li><li>Purchase Orders</li><li>Add / Change / Delete Expense PO</li><li>Inquire</li></ul>
+      <h4>Steps</h4>
+      <ol><li>Enter the PO Number.</li><li>Press Esc.</li><li>Select C (Change).</li><li>Press F12.</li><li>Press Enter.</li><li>Enter the date material arrived and invoice number.</li><li>Under Priced By, enter the Vendor Order Number.</li><li>Press Enter.</li><li>Select Update.</li><li>Press Esc.</li></ol>
+    </details>
+
+    <details>
+      <summary><strong>Finding a Vendor ID</strong></summary>
+      <h4>Navigation</h4>
+      <ul><li>Purchase / Receiving</li><li>Purchase Orders</li><li>Add / Change / Delete Expense PO</li></ul>
+      <h4>Steps</h4>
+      <ol><li>Select I (Inquire).</li><li>Enter Triancos (Location).</li><li>Locate the Vendor ID.</li><li>Press Esc.</li><li>Press F10.</li></ol>
+    </details>
+
+    <details>
+      <summary><strong>Finding a Purchase Order Number</strong></summary>
+      <h4>Navigation</h4>
+      <ul><li>Purchase Orders</li><li>Expense PO</li><li>PO Log</li></ul>
+      <h4>Steps</h4>
+      <ol><li>Select Add / Change.</li><li>Select I (Inquire).</li><li>Enter the Vendor ID and Location.</li><li>Search for the desired PO Number.</li></ol>
+    </details>
+
+    <details>
+      <summary><strong>Updating a PO with Vendor Acknowledgment</strong></summary>
+      <h4>Navigation</h4>
+      <ul><li>Purchase / Receiving</li><li>Purchase Orders</li><li>Add / Change / Delete Expense PO</li></ul>
+      <h4>Steps</h4>
+      <ol><li>Select Add.</li><li>Enter the PO Number.</li><li>Press Esc.</li><li>Enter the vendor acknowledgment information.</li><li>Save the updated PO.</li></ol>
+    </details>
+  </details>
+
+  <details class="overview-section">
+    <summary><strong>Service Job Guidelines</strong></summary>
+    <details>
+      <summary><strong>Two-Tech Jobs</strong></summary>
+      <p>The following jobs require two Service Technicians due to the size, weight, or complexity of the work:</p>
+      <ul><li>Fixed glass replacements</li><li>Door inserts</li><li>8-foot door slab replacements</li></ul>
+    </details>
+    <details>
+      <summary><strong>Technician-Only Jobs</strong></summary>
+      <p>The following services must be completed by a Service Technician:</p>
+      <ul><li>Sill support repairs</li><li>Fixed glass replacements</li><li>Townhome screen-outs</li><li>Townhome service calls</li><li>Sliding patio door panel replacements</li><li>Water leak diagnostics and repairs</li><li>Casement sash replacements</li></ul>
+    </details>
+    <details>
+      <summary><strong>Project Manager Service Calls</strong></summary>
+      <p>The following services may be completed by a Project Manager:</p>
+      <ul><li>Door adjustments</li><li>Window sash and top glass replacements</li><li>Wood installations</li><li>Window adjustments</li></ul>
+    </details>
+  </details>
+
+  <details class="overview-section">
+    <summary><strong>Pick Tickets &amp; Sales Orders</strong></summary>
+
+    <details>
+      <summary><strong>Checking Material Ship Date (Special Inquire)</strong></summary>
+      <h4>Navigation</h4><ul><li>Order Entry / Invoicing</li><li>Sales Order</li><li>Add / Change / Delete</li><li>Special Inquire</li></ul>
+      <h4>Steps</h4><ol><li>Enter the Document ID.</li><li>Review the scheduled material ship date.</li></ol>
+    </details>
+    <details>
+      <summary><strong>Checking Labor Ticket Amount</strong></summary>
+      <h4>Navigation</h4><ul><li>Order Entry / Invoicing</li><li>Sales Order</li><li>Add / Change / Delete</li><li>Special Inquire</li></ul>
+      <h4>Steps</h4><ol><li>Enter the Document ID.</li><li>Review the labor ticket amount.</li></ol>
+      <p><strong>Subcontractor Pay Formula:</strong> Subcontractor Pay = Total Labor × 60%</p><p>(40% Material = 60% Labor)</p>
+    </details>
+    <details>
+      <summary><strong>Checking Pick Ticket Material Location</strong></summary>
+      <h4>Navigation</h4><ul><li>Order Entry / Invoicing</li><li>Sales Order</li><li>Add / Change / Delete</li></ul>
+      <h4>Steps</h4><ol><li>Press Enter.</li><li>Enter the Sales Order Number.</li><li>Press Esc.</li><li>Press F10.</li><li>Press Shift + F2.</li><li>Press Shift + F3 to view shipped material.</li><li>Press F10.</li></ol>
+    </details>
+    <details>
+      <summary><strong>Finding Where a Pick Ticket Was Printed</strong></summary>
+      <h4>Navigation</h4><ul><li>Order Entry / Invoicing</li><li>Print Log Listing</li></ul>
+      <h4>Steps</h4><ol><li>Press Esc.</li><li>Select Document.</li><li>Enter the Pick Ticket Number (PT#).</li><li>Press Esc.</li></ol>
+      <h4>Printer Numbers &amp; Locations</h4>
+      <table class="data-table"><thead><tr><th>Printer Number</th><th>Location</th></tr></thead><tbody><tr><td>505802</td><td>Dispatch</td></tr><tr><td>505492</td><td>Cheryl</td></tr><tr><td>505832</td><td>Guard Shack</td></tr></tbody></table>
+    </details>
+    <details>
+      <summary><strong>Checking PT Material Locations</strong></summary>
+      <h4>Navigation</h4><ul><li>Order Entry / Invoicing</li><li>Sales Order</li><li>Add / Change / Delete</li></ul>
+      <h4>Steps</h4><ol><li>Press Enter.</li><li>Enter the Sales Order Number.</li><li>Press Esc.</li><li>Press F10.</li><li>Press Shift + F2 to view material locations.</li><li>Press Shift + F3 to view shipped material.</li><li>Press F10 to exit.</li></ol>
+    </details>
+    <details>
+      <summary><strong>Checking Where a Pick Ticket Was Printed</strong></summary>
+      <h4>Navigation</h4><ul><li>Order Entry / Invoicing</li><li>Pick Tickets</li><li>Print Log Listing</li></ul>
+      <h4>Steps</h4><ol><li>Press Esc.</li><li>Select Document.</li><li>Enter the Pick Ticket Number (PT#).</li><li>Press Esc.</li></ol>
+      <p><strong>Note:</strong> Only sliding glass doors and sill supports for Tripoint Homes are printed separately.</p>
+      <h4>Printer Numbers &amp; Locations</h4>
+      <table class="data-table"><thead><tr><th>Printer Number</th><th>Location</th></tr></thead><tbody><tr><td>50802</td><td>Dispatch</td></tr><tr><td>50842</td><td>Cheryl</td></tr><tr><td>50832</td><td>Guard Shack</td></tr></tbody></table>
+    </details>
+    <details>
+      <summary><strong>Checking Material Ship Date</strong></summary>
+      <h4>Navigation</h4><ul><li>Order Entry / Invoicing</li><li>Sales Order</li><li>Add / Change / Delete</li><li>Special Inquire</li></ul>
+      <h4>Steps</h4><ol><li>Press Enter three times.</li><li>Press Esc twice.</li><li>Enter the Document ID.</li><li>Press F10 to view the scheduled ship date.</li></ol>
+    </details>
+    <details>
+      <summary><strong>Checking Labor PT Amount</strong></summary>
+      <h4>Navigation</h4><ul><li>Order Entry / Invoicing</li><li>Sales Order</li><li>Add / Change / Delete</li><li>Special Inquire</li></ul>
+      <h4>Steps</h4><ol><li>Press Enter four times.</li><li>Enter the Document ID.</li><li>Press Tab to the PT# field.</li><li>Type PT.</li><li>Press Esc.</li><li>Press F10.</li></ol>
+      <p><strong>Subcontractor Pay Formula:</strong> Subcontractor Pay = Total Labor × 60%</p>
+      <p>(40% Material = 60% Labor)</p>
+    </details>
+    <details>
+      <summary><strong>Creating Subcontractor Material Tickets</strong></summary>
+      <h4>Navigation</h4><ul><li>Order Entry / Invoicing</li><li>Sales Order</li><li>Add / Change / Delete / Inquire</li></ul>
+      <h4>Steps</h4><ol><li>Select Add.</li><li>Enter the Ship Date (day of pickup).</li><li>Enter Ship Time (1).</li><li>Select Location (Triancos).</li><li>Enter the Customer ID (Subcontractor Account Number).</li><li>Enter the Job Number.</li><li>Press Esc twice.</li><li>Select CPU (Y).</li><li>Enter the comment: Customer Pickup.</li><li>Press F10.</li><li>Verify the Total Price appears on the ticket.</li><li>Press Esc.</li><li>Select Y (Cash Number).</li><li>Press Esc.</li><li>Select Y.</li><li>Press Enter twice.</li><li>Enter Load Type: HDW and Delivery Type: CPU.</li><li>Press Esc.</li><li>Delete Y if prompted.</li><li>Write the Pick Ticket Number (PT#) on the ticket.</li></ol>
+    </details>
+  </details>
+
+  <details class="overview-section">
+    <summary><strong>Invoices &amp; Batch Reports</strong></summary>
+    <details>
+      <summary><strong>Scanning Invoices</strong></summary>
+      <h4>Navigation</h4><ul><li>Order Entry / Invoicing</li><li>Invoices / Memos</li></ul>
+      <h4>Steps</h4><ol><li>Enter the Batch ID.</li><li>Press Esc.</li><li>Select Add / Change / Delete.</li><li>Press Enter.</li><li>Select Scan.</li><li>Press Esc twice.</li></ol>
+    </details>
+    <details>
+      <summary><strong>Registering the Batch</strong></summary>
+      <ol><li>Print the report from your email.</li><li>Select Delete.</li><li>Press Y.</li><li>Select Delete.</li><li>Select Register.</li><li>Press Enter.</li><li>Press Y twice.</li><li>Enter BFS.</li><li>Press Esc twice.</li><li>Enter the Batch ID.</li><li>Press Esc twice.</li></ol>
+    </details>
+    <details>
+      <summary><strong>Printing Invoices</strong></summary>
+      <ol><li>Select Delete.</li><li>Press Y.</li><li>Select Delete.</li><li>Select Register.</li><li>Press Y twice.</li><li>Enter printer 50871.</li><li>Press Esc twice.</li><li>Enter the Batch ID.</li><li>Enter the Date.</li><li>Enter Location: TRIANCCS.</li><li>Press Esc twice.</li></ol>
+    </details>
+    <details>
+      <summary><strong>Printing a Batch Report</strong></summary>
+      <h4>Navigation</h4><ul><li>Utilities</li><li>Report on Batch</li></ul>
+      <h4>Steps</h4><ol><li>Select Screen = Y.</li><li>Press Esc.</li><li>Enter Location: TRIANCCS.</li><li>Enter the Open Date (Today's Date).</li><li>Run the report.</li></ol>
+    </details>
+  </details>
+</div>
+  
 <div id="safety" class="tab">
   <h2>Safety</h2>
 
