@@ -170,6 +170,23 @@ details > summary {
   margin: 8px 0 0;
 }
 
+.framing-crews-alert {
+  background: #c8102e;
+  border: 2px solid #7f0f24;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(200, 16, 46, 0.28);
+}
+
+.framing-crews-alert > summary,
+.framing-crews-alert > summary strong {
+  color: #ffffff;
+}
+
+.framing-crews-alert li {
+  color: #ffffff;
+  font-weight: 700;
+}
+
 .data-table {
   width: 100%;
   border-collapse: collapse;
