@@ -1,23 +1,3 @@
-const AP_PASSWORD = 'ILoveBFS2026';
-let isApUnlocked = false;
-
-function showTab(tabId) {
- 
-  if (tabId === 'ap' && !isApUnlocked) {
-    const input = window.prompt('Enter AP password:');
-
-    if (input === null) {
-      return;
-    }
-
-    if (input !== AP_PASSWORD) {
-      window.alert('Incorrect password. Access denied.');
-      return;
-    }
-
-    isApUnlocked = true;
-  }
-
   const tabs = document.querySelectorAll('.tab');
   tabs.forEach((tab) => tab.classList.remove('active'));
 
