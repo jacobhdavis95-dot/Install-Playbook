@@ -1,4 +1,5 @@
-  const tabs = document.querySelectorAll('.tab');
+function showTab(tabId) {
+const tabs = document.querySelectorAll('.tab');
   tabs.forEach((tab) => tab.classList.remove('active'));
 
   const nextTab = document.getElementById(tabId);
