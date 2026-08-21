@@ -269,3 +269,124 @@ li {
     font-size: 13px;
   }
 }
+
+/* MI WINDOW AND DOOR PARTS CATALOG */
+.mi-parts-list {
+  border: 2px solid #0f2f57;
+  background: #f7faff;
+}
+
+.mi-parts-list > summary {
+  font-size: 1.05rem;
+}
+
+.parts-intro {
+  margin-bottom: 14px;
+}
+
+.parts-product {
+  border-left: 4px solid #c8102e;
+}
+
+.parts-product > summary {
+  font-size: 1rem;
+  padding: 3px 0;
+}
+
+.parts-product-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 14px 0 10px;
+}
+
+.parts-product-header h3,
+.parts-product-header p {
+  margin: 0;
+}
+
+.parts-product-header h3 {
+  font-size: 1.1rem;
+}
+
+.parts-metadata {
+  color: #52677f;
+  font-size: 0.82rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.parts-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.parts-table {
+  width: 100%;
+  min-width: 680px;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+.parts-table th,
+.parts-table td {
+  border: 1px solid #cbd6e3;
+  padding: 7px 9px;
+  text-align: left;
+  vertical-align: top;
+  font-size: 0.84rem;
+}
+
+.parts-table thead th {
+  position: sticky;
+  top: 74px;
+  z-index: 2;
+  color: #fff;
+  background: #0f2f57;
+}
+
+.parts-table td:nth-child(2),
+.parts-table td:nth-child(3),
+.parts-table td:nth-child(4) {
+  white-space: nowrap;
+}
+
+.parts-table tbody tr:nth-child(even):not(.parts-category) {
+  background: #f5f8fc;
+}
+
+.parts-table .parts-category th {
+  color: #7f0f24;
+  background: #fff0f3;
+  font-size: 0.9rem;
+}
+
+.parts-notes {
+  margin-top: 14px;
+  padding: 12px;
+  border-radius: 8px;
+  background: #fff8e8;
+  border: 1px solid #e2c778;
+}
+
+.parts-notes h4,
+.parts-notes p {
+  margin: 0 0 7px;
+}
+
+.parts-notes p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 600px) {
+  .parts-product-header {
+    display: block;
+  }
+
+  .parts-metadata {
+    margin-top: 6px;
+    white-space: normal;
+  }
+}
