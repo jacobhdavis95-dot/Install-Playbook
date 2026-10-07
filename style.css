@@ -459,3 +459,6 @@ img { max-width: 100%; height: auto; }
 /* Full-width cover photo, preserving its complete artwork on every screen. */
 .hero-header { display: block; padding: 0; height: auto; }
 .hero-header-image { display: block; width: 100%; height: auto; object-fit: contain; border-radius: 0; }
+
+.resource-link { display: inline-block; background: var(--bfs-navy); color: white; font-weight: 700; padding: 12px 18px; border-radius: 7px; text-decoration: none; min-height: 48px; }
+.resource-link:hover { background: #174771; }
