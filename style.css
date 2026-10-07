@@ -455,3 +455,7 @@ img { max-width: 100%; height: auto; }
   .parts-table th, .parts-table td { font-size: 14px; }
 }
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; transition: none !important; } }
+
+/* Full-width cover photo, preserving its complete artwork on every screen. */
+.hero-header { display: block; padding: 0; height: auto; }
+.hero-header-image { display: block; width: 100%; height: auto; object-fit: contain; border-radius: 0; }
