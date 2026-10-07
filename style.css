@@ -390,3 +390,68 @@ li {
     white-space: normal;
   }
 }
+
+/* Builders FirstSource field guide: shared desktop and mobile presentation. */
+:root { --bfs-navy: #08294c; --bfs-red: #c8102e; --bfs-line: #dae2eb; }
+* { box-sizing: border-box; }
+html { scroll-padding-top: 100px; }
+body { background: #f4f6f8; }
+.hero-header { height: auto; display: flex; align-items: center; gap: 48px; padding: 24px max(24px, calc((100% - 1120px)/2)); background: var(--bfs-navy); border-bottom: 4px solid var(--bfs-red); }
+.hero-header::after { display: none; }
+.hero-header-image { width: 320px; height: auto; border-radius: 8px; }
+.hero-copy { color: white; }
+.hero-copy .eyebrow { color: #cbd8e7; font-size: 11px; letter-spacing: .16em; font-weight: 800; margin: 0 0 12px; }
+h1 { font-size: clamp(28px, 3vw, 40px); letter-spacing: -.04em; margin: 0 0 10px; }
+.hero-copy p:last-child { color: #d4deea; margin: 0; }
+nav { justify-content: center; background: white; border: 0; border-bottom: 1px solid var(--bfs-line); box-shadow: 0 3px 12px #08294c0a; }
+nav button { flex: 0 1 160px; color: var(--bfs-navy); min-height: 70px; border: 0; }
+nav button:hover { background: #edf2f7; }
+nav button.active { color: var(--bfs-red); background: #fff4f5; box-shadow: inset 0 -3px var(--bfs-red); }
+nav button svg { width: 20px; height: 20px; }
+main { max-width: 1120px; margin: auto; }
+.tab { padding: 28px 24px 64px; }
+h2 { font-size: 28px; letter-spacing: -.035em; margin: 0 0 24px; padding-bottom: 16px; border-bottom: 2px solid var(--bfs-line); }
+h3, h4 { line-height: 1.4; }
+p, li { font-size: 16px; line-height: 1.7; }
+li + li { margin-top: 6px; }
+ul, ol { padding-left: 24px; }
+a { color: #12548a; text-underline-offset: 3px; overflow-wrap: anywhere; }
+details { padding: 0 20px; border-radius: 10px; box-shadow: 0 2px 4px #08294c05; margin-bottom: 14px; }
+details > summary { padding: 17px 0; min-height: 56px; line-height: 1.5; }
+details[open] { padding-bottom: 16px; }
+details[open] > summary { margin-bottom: 16px; border-bottom: 1px solid var(--bfs-line); }
+details details { background: #f8fafc; box-shadow: none; }
+.overview-section { padding: 0 20px; }
+.framing-crews-alert, .builder-requirements-section { padding: 0 20px; }
+.framing-crews-alert[open] > summary { border-color: #ffffff55; }
+img { max-width: 100%; height: auto; }
+.table-scroll { max-width: 100%; overflow-x: auto; overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch; margin: 12px 0; border-radius: 6px; }
+.table-scroll:focus-visible, button:focus-visible, select:focus-visible, summary:focus-visible, a:focus-visible { outline: 3px solid #267cb5; outline-offset: 3px; }
+.table-scroll table { margin: 0; min-width: 560px; }
+#contacts .data-table { table-layout: auto; display: table; }
+.data-table th, #safety th { background: #edf2f7; border-color: var(--bfs-line); }
+.data-table td, #safety td { border-color: var(--bfs-line); }
+.parts-table thead th { top: 0; }
+.mobile-navigation { display: none; }
+.skip-link { position: fixed; top: -100px; left: 12px; background: white; padding: 12px; z-index: 100; }
+.skip-link:focus { top: 12px; }
+@media (max-width: 700px) {
+  .hero-header { gap: 16px; padding: 18px 16px; }
+  .hero-header-image { width: 125px; border-radius: 5px; }
+  .hero-copy .eyebrow { font-size: 9px; letter-spacing: .08em; margin-bottom: 6px; }
+  h1 { font-size: 25px; margin-bottom: 0; }
+  .hero-copy p:last-child { display: none; }
+  nav { display: none; }
+  .mobile-navigation { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 12px; position: sticky; top: 0; z-index: 50; background: white; padding: 12px 16px; border-bottom: 1px solid var(--bfs-line); box-shadow: 0 3px 10px #08294c08; }
+  .mobile-navigation label { font-size: 12px; font-weight: 700; color: var(--bfs-navy); }
+  .mobile-navigation select { min-width: 0; width: 100%; min-height: 46px; font: 700 16px Inter, Arial, sans-serif; color: var(--bfs-navy); background: #f4f6f8; border: 1px solid #bdcad9; border-radius: 7px; padding: 8px; }
+  .tab { padding: 22px 12px 40px; }
+  h2 { font-size: 24px; margin-bottom: 18px; }
+  details, .overview-section, .framing-crews-alert, .builder-requirements-section { padding-left: 14px; padding-right: 14px; }
+  details details { margin-left: -5px; margin-right: -5px; padding-left: 12px; padding-right: 12px; }
+  details > summary { font-size: 16px; }
+  p, li { line-height: 1.65; overflow-wrap: anywhere; }
+  ul, ol { padding-left: 20px; }
+  .parts-table th, .parts-table td { font-size: 14px; }
+}
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; transition: none !important; } }

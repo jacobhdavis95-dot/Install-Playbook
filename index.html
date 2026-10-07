@@ -3,11 +3,11 @@
   
 <head>
   <meta charset="UTF-8">
-  <title>BFS Install App</title>
+  <title>Install Playbook | Builders FirstSource Raleigh</title>
   <meta name="theme-color" content="#c8102e">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="manifest" href="manifest.json">
-  <link rel="apple-touch-icon" href="builders-firstsource-logo.svg">
+  <meta name="description" content="Builders FirstSource Raleigh Install Services procedures, safety guidance, contacts, and field resources.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -16,14 +16,15 @@
 </head>
 
 <body>
-<header class="hero-header" aria-label="Install Services header image">
-  <img
- src="Install App Header Photo 2.png"
-    alt="Install Services header"
-    class="hero-header-image"
-  >
+<a class="skip-link" href="#playbook-content">Skip to procedures</a>
+<header class="hero-header">
+  <img src="Install App Header Photo 2.png" alt="Builders FirstSource Raleigh Market" class="hero-header-image">
+  <div class="hero-copy"><p class="eyebrow">RALEIGH INSTALL SERVICES</p><h1>Install Playbook</h1><p>Your field guide to a safe, consistent install.</p></div>
 </header>
-<nav>
+<div class="mobile-navigation"><label for="section-picker">Playbook section</label><select id="section-picker" onchange="showTab(this.value)">
+<option value="framing">Framing</option><option value="windowdoor">Window / Door</option><option value="trim">Trim</option><option value="services">Services</option><option value="safety">Safety</option><option value="contacts">Contacts</option><option value="ap">AP</option>
+</select></div>
+<nav aria-label="Playbook sections">
    <button class="tab-btn active" data-tab="framing" onclick="showTab('framing')">
     <i data-lucide="home"></i>
     <span>Framing</span>
@@ -59,6 +60,7 @@
     <span>AP</span>
   </button> 
 </nav>
+<main id="playbook-content">
 <!-- FRAMING TAB -->
 <div id="framing" class="tab active">
   <h2>Framing SOP</h2>
@@ -5007,14 +5009,11 @@ ANTONIO - CORTAZAR CONSTUCTION - A.RODRIGUEZ CONSTRUCTION
     
 </div>
 
-</div>
+</main>
 
   <script src="mi-parts.js"></script>
   <script src="script.js"></script>
-<script>
-  lucide.createIcons();
 
-</script>
 </body>
 
 </html>
