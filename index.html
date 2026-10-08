@@ -17,6 +17,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=20261007-3">
   <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="search.css?v=20261008">
 </head>
 
 <body>
@@ -63,6 +64,19 @@
     <span>AP</span>
   </button> 
 </nav>
+<section class="playbook-search" aria-label="Search all playbook sections">
+  <form id="search-form" role="search">
+    <label for="playbook-search">Search the Install Playbook</label>
+    <p id="search-help" class="search-help">Ask a question or search a topic, builder, or name. Searches every tab.</p>
+    <div class="search-controls">
+      <input id="playbook-search" type="search" placeholder="e.g. What flashing does Drees require?" aria-describedby="search-help" aria-controls="search-results" autocomplete="off">
+      <button type="submit">Search</button>
+      <button id="search-clear" type="button" hidden>Clear</button>
+    </div>
+  </form>
+  <p id="search-status" role="status" aria-live="polite"></p>
+  <ul id="search-results" aria-label="Search results" hidden></ul>
+</section>
 <main id="playbook-content">
 <!-- FRAMING TAB -->
 <div id="framing" class="tab active">
@@ -5156,6 +5170,7 @@ ANTONIO - CORTAZAR CONSTUCTION - A.RODRIGUEZ CONSTRUCTION
   <script src="mi-parts.js"></script>
   <script src="script.js?v=20261007"></script>
 
+  <script src="search.js?v=20261008"></script>
 </body>
 
 </html>

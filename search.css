@@ -1,0 +1,21 @@
+.playbook-search { max-width: 1200px; margin: 20px auto; padding: 20px; background: #f2f6fa; border: 1px solid #d6e1ec; border-radius: 12px; color: #08294c; }
+.playbook-search label { display: block; font-size: 1.15rem; font-weight: 800; margin-bottom: 6px; }
+.search-help { margin: 0 0 12px; font-size: .95rem; }
+.search-controls { display: flex; gap: 8px; }
+.search-controls input { min-width: 0; flex: 1; padding: 12px; border: 1px solid #97abc0; border-radius: 6px; font: inherit; font-size: 16px; background: white; color: #08294c; }
+.search-controls button { min-height: 48px; padding: 10px 16px; border: 0; border-radius: 6px; background: #08294c; color: white; font: inherit; font-weight: 700; cursor: pointer; }
+.search-controls #search-clear { background: white; color: #08294c; border: 1px solid #97abc0; }
+#search-status:empty { display: none; }
+#search-status { margin: 12px 0 0; font-size: .9rem; }
+#search-results { list-style: none; padding: 0; margin: 14px 0 0; max-height: 480px; overflow-y: auto; overscroll-behavior: contain; }
+#search-results li { margin: 0 0 10px; }
+.search-result { display: block; width: 100%; text-align: left; padding: 16px; border: 1px solid #d6e1ec; border-radius: 8px; background: white; color: #08294c; font: inherit; cursor: pointer; overflow-wrap: anywhere; }
+.search-result:hover { border-color: #08294c; background: #f8fafc; }
+.search-result strong, .search-result-snippet, .search-result-action, .search-result-tab { display: block; }
+.search-result-tab { color: #a30d26; font-size: .8rem; font-weight: 800; margin-bottom: 5px; }
+.search-result-snippet { margin-top: 8px; color: #334155; line-height: 1.5; }
+.search-result-action { margin-top: 10px; font-size: .9rem; font-weight: 700; }
+.search-controls :focus-visible, .search-result:focus-visible { outline: 3px solid #c8102e; outline-offset: 3px; }
+.search-target { outline: 3px solid #d9a740; outline-offset: 5px; scroll-margin-top: 100px; }
+@media (max-width: 700px) { .playbook-search { margin: 12px; padding: 16px; } .search-controls { flex-wrap: wrap; } .search-controls input { flex-basis: 100%; } .search-controls button { flex: 1; } #search-results { max-height: 55vh; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
