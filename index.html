@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="style.css?v=20261007-3">
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="search.css?v=20261008">
-  <link rel="stylesheet" href="pdf-export.css?v=20261103">
+  <link rel="stylesheet" href="pdf-export.css?v=20261109-close">
   <style>
     #ap-month-end .month-end-entry-letter {
       background-color: #ffe579;
@@ -98,14 +98,16 @@
 </section>
 <div class="pdf-tools"><button id="pdf-open" type="button">Save sections as PDF</button></div>
 <dialog id="pdf-dialog" aria-labelledby="pdf-title">
-  <h2 id="pdf-title">Choose sections to share</h2>
+  <div class="pdf-dialog-heading">
+    <h2 id="pdf-title">Choose sections to share</h2>
+    <button id="pdf-cancel" type="button">Close</button>
+  </div>
   <p>Select an entire tab or individual sections, including builder requirements. Photos are included.</p>
   <div id="pdf-sections"></div>
   <p id="pdf-status" role="status" aria-live="polite"></p>
   <div class="pdf-dialog-actions">
     <button id="pdf-export" type="button" disabled>Preview selected sections</button>
     <button id="pdf-clear" type="button">Clear selections</button>
-    <button id="pdf-cancel" type="button">Cancel</button>
   </div>
 </dialog>
 <main id="playbook-content">
