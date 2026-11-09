@@ -59,8 +59,17 @@
       padding: 0;
     }
 
-    .spice-values li {
+    .spice-prompt {
+      margin: 0 0 0.875rem;
+      color: #365577;
+    }
+
+    .spice-values button {
       display: flex;
+      width: 100%;
+      height: 100%;
+      font: inherit;
+      cursor: pointer;
       flex-direction: column;
       align-items: center;
       gap: 0.45rem;
@@ -72,6 +81,35 @@
       color: #0f2f57;
       font-weight: 700;
       text-align: center;
+    }
+
+    .spice-values button:hover,
+    .spice-values button[aria-expanded="true"] {
+      background: #edf4fc;
+      border-color: #53769e;
+    }
+
+    .spice-values button:focus-visible {
+      outline: 2px solid #0f2f57;
+      outline-offset: 2px;
+    }
+
+    .spice-description {
+      margin-top: 0.75rem;
+      padding: 0.875rem 1rem;
+      border: 1px solid #cad9e9;
+      border-left: 4px solid #c8102e;
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .spice-description h4,
+    .spice-description p {
+      margin: 0;
+    }
+
+    .spice-description p {
+      margin-top: 0.25rem;
     }
 
     .spice-values .spice-initial {
@@ -4219,14 +4257,35 @@ are more likely to continue.
   <h2>Safety</h2>
 
   <div class="spice-card" role="region" aria-labelledby="spice-heading">
-    <h3 id="spice-heading">SPICE Core Values</h3>
+    <h3 id="spice-heading">Core Values: SPICE</h3>
+    <p class="spice-prompt">Select a letter to see what that value means to our install team.</p>
     <ul class="spice-values" role="list">
-      <li><span class="spice-initial" aria-hidden="true">S</span>Safety</li>
-      <li><span class="spice-initial" aria-hidden="true">P</span>People</li>
-      <li><span class="spice-initial" aria-hidden="true">I</span>Integrity</li>
-      <li><span class="spice-initial" aria-hidden="true">C</span>Customers</li>
-      <li><span class="spice-initial" aria-hidden="true">E</span>Excellence</li>
+      <li><button type="button" aria-expanded="false" aria-controls="spice-safety"><span class="spice-initial" aria-hidden="true">S</span>Safety</button></li>
+      <li><button type="button" aria-expanded="false" aria-controls="spice-people"><span class="spice-initial" aria-hidden="true">P</span>People</button></li>
+      <li><button type="button" aria-expanded="false" aria-controls="spice-integrity"><span class="spice-initial" aria-hidden="true">I</span>Integrity</button></li>
+      <li><button type="button" aria-expanded="false" aria-controls="spice-customers"><span class="spice-initial" aria-hidden="true">C</span>Customers</button></li>
+      <li><button type="button" aria-expanded="false" aria-controls="spice-excellence"><span class="spice-initial" aria-hidden="true">E</span>Excellence</button></li>
     </ul>
+    <div class="spice-description" id="spice-safety" hidden>
+      <h4>Safety</h4>
+      <p>Everyone should go home safe. We speak up when we see a hazard, stop work when conditions are unsafe, and make sure the issue is addressed before work resumes.</p>
+    </div>
+    <div class="spice-description" id="spice-people" hidden>
+      <h4>People</h4>
+      <p>We look out for our teammates and installers. We share what we know, help each other get better, and treat everyone on the jobsite with respect.</p>
+    </div>
+    <div class="spice-description" id="spice-integrity" hidden>
+      <h4>Integrity</h4>
+      <p>We do what we say we’ll do. We document what we actually see on site, own our mistakes, and follow through on getting them corrected.</p>
+    </div>
+    <div class="spice-description" id="spice-customers" hidden>
+      <h4>Customers</h4>
+      <p>We keep builders and homeowners informed about what to expect. We communicate delays early and follow through until their concerns are resolved.</p>
+    </div>
+    <div class="spice-description" id="spice-excellence" hidden>
+      <h4>Excellence</h4>
+      <p>We aim to get each install right the first time. We walk our jobs, check the details, and use what we learn to improve the next install.</p>
+    </div>
   </div>
 
 
@@ -5768,6 +5827,22 @@ ANTONIO - CORTAZAR CONSTUCTION - A.RODRIGUEZ CONSTRUCTION
 
   <script src="search.js?v=20261008"></script>
   <script src="pdf-export.js?v=20261109-heading-boxes"></script>
+  <script>
+    const spiceCard = document.querySelector(".spice-card");
+    const spiceButtons = spiceCard.querySelectorAll(".spice-values button");
+
+    spiceCard.addEventListener("click", (event) => {
+      const selected = event.target.closest(".spice-values button");
+      if (!selected) return;
+
+      const shouldOpen = selected.getAttribute("aria-expanded") === "false";
+      for (const button of spiceButtons) {
+        const isOpen = button === selected && shouldOpen;
+        button.setAttribute("aria-expanded", String(isOpen));
+        document.getElementById(button.getAttribute("aria-controls")).hidden = !isOpen;
+      }
+    });
+  </script>
 </body>
 
 </html>
