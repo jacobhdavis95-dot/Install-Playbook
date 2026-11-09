@@ -4801,6 +4801,86 @@ ANTONIO - CORTAZAR CONSTUCTION - A.RODRIGUEZ CONSTRUCTION
     </details>
   </details>
 
+<details class="overview-section" id="ap-month-end">
+  <summary><strong>Month End</strong></summary>
+  <p>In OnLine, go to <strong>Period End Checklist → Check List and Status → Location Check List</strong>. Confirm that the location and period date default correctly. Enter the period date as <strong>MM/01/YYYY</strong>. Press <strong>Shift + F1</strong> for menu paths and descriptions.</p>
+  <p>Complete monthly steps each month. Complete quarter-end-only steps in March, June, September, and December. Where shown, Y/E indicates the checklist offers either response. Confirm each process is complete before selecting Y on a lockout item.</p>
+
+  <h4>A/P Exceptions</h4>
+  <p><strong>Deadline:</strong> 4 p.m. Central at month-end and quarter-end. Repeat these checks often and early.</p>
+  <ol>
+    <li><strong>Resolve and respond to all A/P exceptions (Y).</strong> Open PO Exceptions from A/P OnLine’s <strong>My Dashboard</strong>. Exceptions are vendor invoices that cannot yet be vouchered. Resolve what you can so vouchers can be created this month. Send comments to A/P through the dashboard. The GM or designee verifies that all exceptions were resolved or responded to.</li>
+    <li><strong>Clear all A/P SharePoint items (Y).</strong> The GM or designee verifies with the person responsible that all workflow items have been processed.</li>
+  </ol>
+
+  <h4>Work Orders</h4>
+  <p><strong>Deadline:</strong> 5 p.m. local at month-end and 6 p.m. local at quarter-end.</p>
+  <ol>
+    <li><strong>Close work orders for finished products (Y/E).</strong> Run the Open Work Orders Report for your location and close work orders for products already built or cut so inventory on hand is accurate. This applies to manufactured items such as doors, stairs, trusses, and panels, and to cut EWP such as LVLs, I-joists, and LSLs.</li>
+    <li><strong>Verify deliveries of products shipped this month (Y/E).</strong> Add delivery verification promptly for trusses and panels shipped this period so remote locations can bill on time. Use the Production Control training guide for details. Verify delivery only when the customer has the material.</li>
+    <li><strong>All work order processes are finished (lockout, Y/E).</strong> Selecting Y prevents adding or deleting work order close and delivery verification transactions for the period. Contact the Service Desk to reopen the WO EOM checklist if changes are needed.</li>
+  </ol>
+
+  <h4>Receiving</h4>
+  <p><strong>Deadline:</strong> 5 p.m. local at month-end and 6 p.m. local at quarter-end.</p>
+  <ol>
+    <li><strong>Finish all receiving (Y).</strong> Receive specials used in work orders by 4 p.m. Verify all stock, specials, install labor, and other material on hand are received in OnLine. The location GM verifies with Receiving as part of the daily routine.</li>
+    <li><strong>Receive expense POs for services rendered (Y).</strong> Receive expense items on hand and completed services. Run the Open PO Report with <strong>User Defined Document Type = EX</strong>. Confirm whether each open expense PO needs to be received. The location GM verifies with the person responsible for expense receiving.</li>
+    <li><strong>Correct non-stock receivers as needed (Y/E).</strong> Use <strong>Receipts/Returns → Change NonStock Receiver</strong>. The location GM verifies with Receiving that all product has been received in OnLine.</li>
+    <li><strong>Add receiving for late deliveries (quarter-end only, Y).</strong> Double-check that material arriving late in the day is received in the system.</li>
+    <li><strong>Electronically approve all receivers (Y).</strong> Review and correct receivers, then approve each under <strong>Purchasing/Receiving → Utilities → Receiver Electronic Approval</strong>. Unapproved scanned receivers prevent the receiving batch from closing.</li>
+    <li><strong>Close receiving batches (Y).</strong> Close batches after electronic approval so AP Automatch can create vouchers. Use a new batch for late receiving if the prior batch is closed. The GM or designee closes the batch or verifies that the designated person did.</li>
+    <li><strong>All receiving processes are finished (lockout, Y).</strong> Selecting Y prevents adding receivers or changing non-stock receivers for the period. Contact the Service Desk to reopen the Receiving Checklist for corrections or additions.</li>
+  </ol>
+
+  <h4>Invoicing</h4>
+  <p><strong>Deadline:</strong> 5 p.m. local at month-end and 6 p.m. local at quarter-end.</p>
+  <ol>
+    <li><strong>Finish invoices, credit memos, POs, and store use (Y).</strong> Start early. Invoice eligible material that has left the location and is in the customer’s possession. Use Shipped Not Invoiced and Installed Not Invoiced to catch delivered tickets. Completing invoicing helps clear the scan-date report and identifies quantity-to-cost (QTC) items. The GM verifies all eligible transactions have been invoiced.</li>
+    <li><strong>Run Delivery Verification for uninvoiced shipments (Y/E).</strong> For truss or panel sales where the Lumber Yard or Millwork location recognizes revenue, go to <strong>Production Control → Delivery Verification → Enter Batch ID → Location Delivery Verification</strong>. Set <strong>Selling Location</strong> to your location code and <strong>Invoiced = N</strong>. Invoice shipments from the month. Final result must be <strong>NO DATA MATCH</strong>.</li>
+    <li><strong>Run Shipped Not Invoiced by scan date (Y).</strong> Go to <strong>Order Entry → Reports → Shipped Not Invoiced</strong>. Enter your location code and scan dates from the first day of the quarter through today (example format <code>010114:033114</code>). Review pick tickets scanned in or out by Dispatch. Invoice delivered tickets or use <strong>Reset Log</strong> to clear scans on undelivered material returned to the location. Results may differ from the overnight report. Final result must be <strong>NO DATA MATCH</strong>. <strong>Sign and save.</strong></li>
+    <li><strong>Run Installed Not Invoiced by scan date (Y).</strong> Go to <strong>Order Entry → Reports → Installed Not Invoiced</strong>. Use your location code and scan dates from the first day of the quarter through today. Install locations may see data. Invoice delivered tickets or use <strong>Reset Log</strong> for undelivered material returned to the location. Results may differ from the overnight report. Final result must be <strong>NO DATA MATCH</strong>. <strong>Sign, date, save, and give the report to AP.</strong></li>
+    <li><strong>Review Contract Analysis for project margins and status (Y).</strong> Go to <strong>Order Entry / Invoicing → Invoices/Memos → Contract Analysis</strong>. Use your location code as the default location and leave Completion Date blank for open contracts. Review revenue and margin recognized to date, expected losses, and needed change orders. Install jobs at least 95% complete can be invoiced. For other jobs, record the current status and why they cannot be invoiced. Other locations should get <strong>NO DATA MATCH</strong>. <strong>Sign, date, and give the report to AP.</strong></li>
+    <li><strong>Invoice pick tickets still out on delivery trucks (quarter-end only, Y).</strong> Invoice all material shipped on the last day of the month. If a truck will return after the invoicing cutoff, photocopy the pick ticket and use that copy to invoice. Replace it with the original pink ticket when it returns that day or the next.</li>
+    <li><strong>Review and approve the final invoice register (Y).</strong> Run the register for the last day of the month after all invoicing and any Point of Sale activity are complete. Review and process corrections before closing the month.</li>
+    <li><strong>All invoicing processes are finished (lockout, Y).</strong> Selecting Y prevents additions or changes to Invoicing, Point of Sale, and Consolidated Invoice. Contact the Service Desk to reopen the Invoicing Checklist if changes are needed.</li>
+  </ol>
+
+  <h4>Deposits</h4>
+  <p><strong>Deadline:</strong> 5 p.m. local.</p>
+  <ol>
+    <li><strong>All deposits for orders and A/R accounts are finished (lockout, Y/E).</strong> Post all deposits received this month through the system Deposit program. The GM verifies with the people responsible that deposits for A/R accounts and sales orders were processed and that Point of Sale is complete where used.</li>
+  </ol>
+
+  <h4>Petty Cash and Cash Reconciliation</h4>
+  <p><strong>Deadline:</strong> 5 p.m. local.</p>
+  <ol>
+    <li><strong>Verify petty cash period-end balance (Y/E).</strong> Where petty cash is used, go to <strong>Remote Clock and Expenses → Expenses → Petty Cash → Period End Cash Validation</strong>. The GM verifies that all expenditures were recorded and cash on hand agrees with the system balance.</li>
+    <li><strong>Approve cash reconciliation for all days (Y/E).</strong> Balance cash for the last day under <strong>Point of Sale → Cash Reconciliation</strong>. To check approvals, run <strong>A/R → Reports → Location Cash Approval</strong> for your location from the first through the last day of the month with <strong>Display N</strong> to show unapproved days. The GM or designee verifies approval in OnLine for each business day.</li>
+    <li><strong>Review credit card authorization forms (quarter-end only, Y).</strong> Securely destroy forms that contain expired card numbers or were originally received more than a year ago, in accordance with the Payment Card Information Policy.</li>
+  </ol>
+
+  <h4>Inventory</h4>
+  <p><strong>Deadline:</strong> 5 p.m. local at month-end and 6 p.m. local at quarter-end.</p>
+  <ol>
+    <li><strong>Validate finished goods on hand (quarter-end only, Y/E).</strong> Run <strong>Production Control → Reports → Manufactured Order Report</strong> with your location code in <strong>Charge To Location</strong>. Verify truss and panel items are on hand. Invoice or verify delivery as needed. Applies to truss and panel locations. Lumber and Millwork locations can enter E.</li>
+    <li><strong>Rerun Delivery Verification (Y/E).</strong> For applicable two-step truss or panel sales, use the same location and <strong>Invoiced = N</strong> settings as in Invoicing. Invoice anything still listed. Final result must be <strong>NO DATA MATCH</strong>.</li>
+    <li><strong>Rerun Shipped Not Invoiced by scan date (Y).</strong> Run the same report with your location code and the first day of the quarter through today. Check for new items. Invoice delivered tickets or reset the scan log for undelivered tickets returned to the location. Final result must be <strong>NO DATA MATCH</strong>.</li>
+    <li><strong>Rerun Installed Not Invoiced by scan date (Y/E).</strong> Use the same location code and quarter-to-date date range. Check for new items. Invoice delivered tickets or reset the delivery log for undelivered tickets returned to the location. Final result must be <strong>NO DATA MATCH</strong>.</li>
+    <li><strong>Finish inventory and receiver adjustments (Y/E).</strong> Process adjustments for damages, cycle counts, substitutions, QTC, and other inventory changes. The GM or designee verifies completion with the people responsible.</li>
+    <li><strong>Run the QTC report and correct exceptions (Y/E).</strong> Go to <strong>Order Entry → Invoices/Memos → Qty To Cost Detail</strong>. Set the From Date to the first day of the month and the To Date to today. Correct items through work orders, receiving, invoice corrections, or inventory adjustments. The GM or designee verifies a final result of <strong>NO DATA MATCH</strong>. <strong>Sign, date, save, and give the report to AP.</strong></li>
+    <li><strong>All inventory adjustments are finished (lockout, Y/E).</strong> If a transaction cannot be processed for QTC, enter an inventory adjustment to clear it. Reverse the adjustment and enter the correct transaction the next day. Selecting Y prevents adding inventory or receiver adjustments. Contact the Helpdesk to reopen if needed.</li>
+  </ol>
+
+  <h4>Quantity to Cost and Final Close</h4>
+  <p><strong>QTC deadline:</strong> 5 p.m. local at month-end and 6 p.m. local at quarter-end. Check QTC throughout the day.</p>
+  <ol>
+    <li><strong>QTC is clear (lockout, Y/E).</strong> Run <strong>Order Entry → Invoices/Memos → Qty To Cost Detail</strong> from the first day of the month through today. Final result must be <strong>NO DATA MATCH</strong>. Selecting Y prevents adding or editing transactions in Invoicing, Point of Sale, or Production Control.</li>
+    <li><strong>LOC COMPLETE? (lockout, Y).</strong> Select Y to finalize the Period End Checklist. Print to <strong>50824</strong>.</li>
+  </ol>
+  <p>To reopen a lockout selection, call the Service Desk at <strong>(888) 724-1457</strong> and follow the prompts for ERP Support.</p>
+</details>
+
 <details class="overview-section" id="signing-up-subcontractor">
   <summary><strong>Signing Up A Subcontractor</strong></summary>
   <details open>
