@@ -76,8 +76,49 @@ document.addEventListener('DOMContentLoaded', () => {
         img.removeAttribute('style');
         img.setAttribute('data-pdfmake', JSON.stringify({fit: img.classList.contains('pdf-cover') ? [500, 95] : [500, 580]}));
       }
+      // Capture the preview's colors and borders before converting the detached copy.
+      const styledSelector = 'h1,h2,h3,h4,h5,h6,aside,mark,th';
+      const previewNodes = doc.body.querySelectorAll(styledSelector);
+      const pdfColor = color => {
+        const channels = color.match(/^rgba?\(([^)]+)\)$/)?.[1].split(',').map(Number);
+        if (!channels || channels.length < 3) return color;
+        const opacity = channels[3] ?? 1;
+        return '#' + channels.slice(0, 3).map(channel =>
+          Math.round(channel * opacity + 255 * (1 - opacity)).toString(16).padStart(2, '0')
+        ).join('');
+      };
+      printable.querySelectorAll(styledSelector).forEach((node, index) => {
+        const style = preview.getComputedStyle(previewNodes[index]);
+        const background = style.backgroundColor;
+        const hasFill = background !== 'rgba(0, 0, 0, 0)' && background !== 'transparent';
+        const sides = ['Top', 'Right', 'Bottom', 'Left'];
+        const borders = sides.map(side => {
+          const width = parseFloat(style['border' + side + 'Width']);
+          return style['border' + side + 'Style'] !== 'none' && width > 0 ? width * 0.75 : 0;
+        });
+        const box = !node.matches('mark,th') && (hasFill || borders.some(Boolean));
+        const data = {color: pdfColor(style.color)};
+        if (box) {
+          data.playbookBox = {
+            fillColor: hasFill ? pdfColor(background) : undefined,
+            borders,
+            colors: sides.map(side => pdfColor(style['border' + side + 'Color']))
+          };
+          // The fill goes on the PDF cell, not behind individual text runs.
+          node.style.backgroundColor = '';
+        } else if (hasFill) {
+          data[node.matches('th') ? 'fillColor' : 'background'] = pdfColor(background);
+        }
+        if (node.matches('mark')) {
+          const span = doc.createElement('span');
+          span.append(...node.childNodes);
+          node.replaceWith(span);
+          node = span;
+        }
+        node.setAttribute('data-pdfmake', JSON.stringify(data));
+      });
       // Convert generic wrappers to supported blocks, retaining headings and tables.
-      printable.querySelectorAll('section,figure,figcaption,main').forEach(node => {
+      printable.querySelectorAll('section,figure,figcaption,main,aside').forEach(node => {
         const div = doc.createElement('div');
         [...node.attributes].forEach(attr => div.setAttribute(attr.name, attr.value));
         div.append(...node.childNodes);
@@ -102,11 +143,37 @@ document.addEventListener('DOMContentLoaded', () => {
         if (value.table?.body?.length) {
           value.table.widths = Array(value.table.body[0].length).fill('*');
           value.fontSize = 8;
+          value.layout ??= {
+            hLineColor: () => '#adb9c5',
+            vLineColor: () => '#adb9c5'
+          };
         }
         Object.values(value).forEach(child => {
           if (Array.isArray(child)) child.forEach(sizeTables);
           else if (child && typeof child === 'object') sizeTables(child);
         });
+        if (value.playbookBox) {
+          const {fillColor, borders, colors} = value.playbookBox;
+          const {margin, headlineLevel, ...cell} = value;
+          delete cell.playbookBox;
+          Object.keys(value).forEach(key => delete value[key]);
+          Object.assign(value, {
+            margin,
+            headlineLevel,
+            table: {widths: ['*'], body: [[{...cell, fillColor}]]},
+            layout: {
+              hLineWidth: index => borders[index ? 2 : 0],
+              vLineWidth: index => borders[index ? 1 : 3],
+              hLineColor: index => colors[index ? 2 : 0],
+              vLineColor: index => colors[index ? 1 : 3],
+              paddingTop: () => 5,
+              paddingBottom: () => 5,
+              paddingLeft: () => 8,
+              paddingRight: () => 8
+            }
+          });
+          if (headlineLevel) value.table.dontBreakRows = true;
+        }
       }
       sizeTables(converted);
       const definition = {
@@ -221,6 +288,7 @@ document.addEventListener('DOMContentLoaded', () => {
       table{border-collapse:collapse;width:100%;font-size:11px;table-layout:auto}th,td{border:1px solid #adb9c5;padding:6px;overflow-wrap:anywhere}thead{display:table-header-group}tr{break-inside:avoid}
       pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{margin:20px 0}.pdf-source{font-size:12px;color:#526477}
       .table-scroll,.parts-table-wrap{overflow:visible!important}.pdf-cover{max-height:130px;width:100%!important;object-fit:contain}
+      h1,h2,h3,h4,h5,h6,aside,mark,th{print-color-adjust:exact;-webkit-print-color-adjust:exact}
       @page{size:letter;margin:.55in}
       @media print{body{max-width:none;margin:0;padding:0;color:#000}.pdf-toolbar{display:none}.pdf-selection+.pdf-selection{break-before:page}a{color:inherit;text-decoration:none}}
     `;
@@ -262,11 +330,27 @@ document.addEventListener('DOMContentLoaded', () => {
       label.textContent = [nameOf(tab), ...path].filter(Boolean).join(' › ');
       section.append(label);
       const clone = doc.importNode(choice.node, true);
+      const styledSelector = 'h1,h2,h3,h4,h5,h6,summary,aside,mark,th';
+      const originalStyles = [...choice.node.querySelectorAll(styledSelector)];
+      const preservedStyles = new Map();
+      clone.querySelectorAll(styledSelector).forEach((el, index) => {
+        const source = originalStyles[index];
+        const style = window.getComputedStyle(source);
+        const properties = ['color', 'background-color', 'border-top', 'border-right', 'border-bottom', 'border-left', 'border-radius'];
+        if (el.matches('aside,mark') || style.backgroundColor !== 'rgba(0, 0, 0, 0)') {
+          properties.push('padding');
+        }
+        if (el.matches('mark')) properties.push('font-weight');
+        preservedStyles.set(el, properties
+          .filter(property => style.getPropertyValue(property))
+          .map(property => property + ':' + style.getPropertyValue(property)).join(';'));
+      });
       clone.querySelectorAll('script,style,button,input,select,textarea,.parts-controls').forEach(el => el.remove());
       [clone, ...clone.querySelectorAll('*')].forEach(el => {
         el.removeAttribute('id');
         const color = el.style.color || (el.classList.contains('osha-alert') ? '#c8102e' : '');
         el.removeAttribute('style');
+        if (preservedStyles.has(el)) el.style.cssText = preservedStyles.get(el);
         if (color) el.style.color = color;
         el.removeAttribute('hidden');
         el.removeAttribute('tabindex');
@@ -282,6 +366,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (summary) {
           const title = doc.createElement('h3');
           title.textContent = summary.textContent.trim();
+          title.style.cssText = summary.style.cssText;
           summary.remove();
           replacement.append(title);
         }
