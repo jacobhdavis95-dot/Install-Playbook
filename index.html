@@ -34,6 +34,61 @@
       border-radius: 8px;
       padding: 0.65rem 0.9rem;
     }
+
+    .spice-card {
+      margin: 0 0 1rem;
+      padding: clamp(0.875rem, 2.5vw, 1.5rem);
+      background: linear-gradient(145deg, #fff, #eaf2fa);
+      border: 1px solid #cad9e9;
+      border-top: 4px solid #c8102e;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(9, 35, 66, 0.08);
+    }
+
+    .spice-card h3 {
+      margin: 0 0 0.875rem;
+      font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+    }
+
+    .spice-card .spice-values {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 6.5rem), 1fr));
+      gap: 0.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .spice-values li {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.45rem;
+      margin: 0;
+      padding: 0.75rem 0.25rem;
+      border: 1px solid #d7e0eb;
+      border-radius: 8px;
+      background: #fff;
+      color: #0f2f57;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .spice-values .spice-initial {
+      display: grid;
+      place-items: center;
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 7px;
+      background: #0f2f57;
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: 800;
+    }
+
+    .spice-values li:first-child .spice-initial {
+      background: #c8102e;
+    }
   </style>
 </head>
 
@@ -4163,14 +4218,16 @@ are more likely to continue.
 <div id="safety" class="tab">
   <h2>Safety</h2>
 
-  <h3>SPICE Core Values</h3>
-  <ul>
-    <li><strong>S</strong> &ndash; Safety</li>
-    <li><strong>P</strong> &ndash; People</li>
-    <li><strong>I</strong> &ndash; Integrity</li>
-    <li><strong>C</strong> &ndash; Customers</li>
-    <li><strong>E</strong> &ndash; Excellence</li>
-  </ul>
+  <div class="spice-card" role="region" aria-labelledby="spice-heading">
+    <h3 id="spice-heading">SPICE Core Values</h3>
+    <ul class="spice-values" role="list">
+      <li><span class="spice-initial" aria-hidden="true">S</span>Safety</li>
+      <li><span class="spice-initial" aria-hidden="true">P</span>People</li>
+      <li><span class="spice-initial" aria-hidden="true">I</span>Integrity</li>
+      <li><span class="spice-initial" aria-hidden="true">C</span>Customers</li>
+      <li><span class="spice-initial" aria-hidden="true">E</span>Excellence</li>
+    </ul>
+  </div>
 
 
 
