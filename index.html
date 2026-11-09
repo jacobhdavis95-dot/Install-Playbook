@@ -19,6 +19,15 @@
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="search.css?v=20261008">
   <link rel="stylesheet" href="pdf-export.css?v=20261103">
+  <style>
+    #ap-month-end .month-end-section-title {
+      background-color: #e7f1fb;
+      color: #173a5e;
+      border: 1px solid #afc8e1;
+      border-radius: 8px;
+      padding: 0.65rem 0.9rem;
+    }
+  </style>
 </head>
 
 <body>
@@ -4814,14 +4823,14 @@ ANTONIO - CORTAZAR CONSTUCTION - A.RODRIGUEZ CONSTRUCTION
     <p>Each step below starts with the response marked on the Raleigh Install checklist. Follow the report and AP handoff instructions shown with the step.</p>
   </aside>
 
-  <h4>A/P Exceptions</h4>
+  <h4 class="month-end-section-title">A/P Exceptions</h4>
   <p><strong>Deadline:</strong> 4 p.m. Central at month-end and quarter-end. Repeat these checks often and early.</p>
   <ol>
     <li><strong>Enter Y</strong> — <strong>Resolve and respond to all A/P exceptions.</strong> Open PO Exceptions from A/P OnLine’s <strong>My Dashboard</strong>. Exceptions are vendor invoices that cannot yet be vouchered. Resolve what you can so vouchers can be created this month. Send comments to A/P through the dashboard. The GM or designee verifies that all exceptions were resolved or responded to.</li>
     <li><strong>Enter Y</strong> — <strong>Clear all A/P SharePoint items.</strong> The GM or designee verifies with the person responsible that all workflow items have been processed.</li>
   </ol>
 
-  <h4>Work Orders</h4>
+  <h4 class="month-end-section-title">Work Orders</h4>
   <p><strong>Deadline:</strong> 5 p.m. local at month-end and 6 p.m. local at quarter-end.</p>
   <ol>
     <li><strong>Enter E</strong> — <strong>Close work orders for finished products.</strong> Run the Open Work Orders Report for your location and close work orders for products already built or cut so inventory on hand is accurate. This applies to manufactured items such as doors, stairs, trusses, and panels, and to cut EWP such as LVLs, I-joists, and LSLs.</li>
@@ -4829,7 +4838,7 @@ ANTONIO - CORTAZAR CONSTUCTION - A.RODRIGUEZ CONSTRUCTION
     <li><strong>Enter E · Lockout</strong> — <strong>All work order processes are finished.</strong> Selecting Y prevents adding or deleting work order close and delivery verification transactions for the period. Contact the Service Desk to reopen the WO EOM checklist if changes are needed.</li>
   </ol>
 
-  <h4>Receiving</h4>
+  <h4 class="month-end-section-title">Receiving</h4>
   <p><strong>Deadline:</strong> 5 p.m. local at month-end and 6 p.m. local at quarter-end.</p>
   <ol>
     <li><strong>Enter Y</strong> — <strong>Finish all receiving.</strong> Receive specials used in work orders by 4 p.m. Verify all stock, specials, install labor, and other material on hand are received in OnLine. The location GM verifies with Receiving as part of the daily routine.</li>
@@ -4841,7 +4850,7 @@ ANTONIO - CORTAZAR CONSTUCTION - A.RODRIGUEZ CONSTRUCTION
     <li><strong>Enter Y · Lockout</strong> — <strong>All receiving processes are finished.</strong> Selecting Y prevents adding receivers or changing non-stock receivers for the period. Contact the Service Desk to reopen the Receiving Checklist for corrections or additions.</li>
   </ol>
 
-  <h4>Invoicing</h4>
+  <h4 class="month-end-section-title">Invoicing</h4>
   <p><strong>Deadline:</strong> 5 p.m. local at month-end and 6 p.m. local at quarter-end.</p>
   <ol>
     <li><strong>Enter Y</strong> — <strong>Finish invoices, credit memos, POs, and store use.</strong> Start early. Invoice eligible material that has left the location and is in the customer’s possession. Use Shipped Not Invoiced and Installed Not Invoiced to catch delivered tickets. Completing invoicing helps clear the scan-date report and identifies quantity-to-cost (QTC) items. The GM verifies all eligible transactions have been invoiced.</li>
@@ -4854,13 +4863,13 @@ ANTONIO - CORTAZAR CONSTUCTION - A.RODRIGUEZ CONSTRUCTION
     <li><strong>Enter Y · Lockout</strong> — <strong>All invoicing processes are finished.</strong> Selecting Y prevents additions or changes to Invoicing, Point of Sale, and Consolidated Invoice. Contact the Service Desk to reopen the Invoicing Checklist if changes are needed.</li>
   </ol>
 
-  <h4>Deposits</h4>
+  <h4 class="month-end-section-title">Deposits</h4>
   <p><strong>Deadline:</strong> 5 p.m. local.</p>
   <ol>
     <li><strong>Enter E · Lockout</strong> — <strong>All deposits for orders and A/R accounts are finished.</strong> Post all deposits received this month through the system Deposit program. The GM verifies with the people responsible that deposits for A/R accounts and sales orders were processed and that Point of Sale is complete where used.</li>
   </ol>
 
-  <h4>Petty Cash and Cash Reconciliation</h4>
+  <h4 class="month-end-section-title">Petty Cash and Cash Reconciliation</h4>
   <p><strong>Deadline:</strong> 5 p.m. local.</p>
   <ol>
     <li><strong>Enter E</strong> — <strong>Verify petty cash period-end balance.</strong> Where petty cash is used, go to <strong>Remote Clock and Expenses → Expenses → Petty Cash → Period End Cash Validation</strong>. The GM verifies that all expenditures were recorded and cash on hand agrees with the system balance.</li>
@@ -4868,7 +4877,7 @@ ANTONIO - CORTAZAR CONSTUCTION - A.RODRIGUEZ CONSTRUCTION
     <li><strong>Enter Y · Quarter-end only</strong> — <strong>Review credit card authorization forms.</strong> Securely destroy forms that contain expired card numbers or were originally received more than a year ago, in accordance with the Payment Card Information Policy.</li>
   </ol>
 
-  <h4>Inventory</h4>
+  <h4 class="month-end-section-title">Inventory</h4>
   <p><strong>Deadline:</strong> 5 p.m. local at month-end and 6 p.m. local at quarter-end.</p>
   <ol>
     <li><strong>Enter E · Quarter-end only</strong> — <strong>Validate finished goods on hand.</strong> Run <strong>Production Control → Reports → Manufactured Order Report</strong> with your location code in <strong>Charge To Location</strong>. Verify truss and panel items are on hand. Invoice or verify delivery as needed. Applies to truss and panel locations. Lumber and Millwork locations can enter E.</li>
@@ -4880,7 +4889,7 @@ ANTONIO - CORTAZAR CONSTUCTION - A.RODRIGUEZ CONSTRUCTION
     <li><strong>Enter E · Lockout</strong> — <strong>All inventory adjustments are finished.</strong> If a transaction cannot be processed for QTC, enter an inventory adjustment to clear it. Reverse the adjustment and enter the correct transaction the next day. Selecting Y prevents adding inventory or receiver adjustments. Contact the Helpdesk to reopen if needed.</li>
   </ol>
 
-  <h4>Quantity to Cost and Final Close</h4>
+  <h4 class="month-end-section-title">Quantity to Cost and Final Close</h4>
   <p><strong>QTC deadline:</strong> 5 p.m. local at month-end and 6 p.m. local at quarter-end. Check QTC throughout the day.</p>
   <ol>
     <li><strong>Enter E · Lockout</strong> — <strong>QTC is clear.</strong> Run <strong>Order Entry → Invoices/Memos → Qty To Cost Detail</strong> from the first day of the month through today. Final result must be <strong>NO DATA MATCH</strong>. Selecting Y prevents adding or editing transactions in Invoicing, Point of Sale, or Production Control.</li>
