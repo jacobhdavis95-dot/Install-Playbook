@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const status = document.getElementById('pdf-status');
   const exportButton = document.getElementById('pdf-export');
   const choices = [];
+  const playbookUrl = new URL('./', document.baseURI).href;
 
   let pdfLibraries;
   function loadPdfLibraries() {
@@ -182,7 +183,14 @@ document.addEventListener('DOMContentLoaded', () => {
         defaultStyle: {font: 'Roboto', fontSize: 10, lineHeight: 1.25, color: '#142c45'},
         content: converted,
         pageBreakBefore: (node, following) => Boolean(node.headlineLevel && following.length === 0),
-        footer: (page, pages) => ({text: page + ' / ' + pages, alignment: 'center', fontSize: 9, color: '#526477', margin: [0, 12, 0, 0]})
+        footer: (page, pages) => ({
+          columns: [
+            {text: 'Back to Playbook', link: playbookUrl, decoration: 'underline', color: '#12548a', width: '*'},
+            {text: page + ' / ' + pages, alignment: 'center', width: 'auto'},
+            {text: '', width: '*'}
+          ],
+          fontSize: 9, color: '#526477', margin: [40, 12, 40, 0]
+        })
       };
       const blob = await new Promise((resolve, reject) => {
         const timer = setTimeout(() => reject(new Error('PDF preparation timed out. Try selecting fewer sections.')), 90000);
@@ -301,7 +309,17 @@ document.addEventListener('DOMContentLoaded', () => {
     save.addEventListener('click', () => downloadPdf(preview, help, save, filename));
     const help = doc.createElement('p');
     help.textContent = 'Download your selected sections as a PDF file. Your selected content is below.';
-    toolbar.append(save, help);
+    const back = doc.createElement('a');
+    back.href = playbookUrl;
+    back.textContent = 'Back to Playbook';
+    back.style.marginInlineStart = '12px';
+    back.addEventListener('click', event => {
+      if (preview.opener && !preview.opener.closed) {
+        event.preventDefault();
+        preview.close();
+      }
+    });
+    toolbar.append(save, back, help);
     doc.body.append(toolbar);
     const cover = document.querySelector('.hero-header-image');
     if (cover) {
@@ -379,10 +397,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const footer = doc.createElement('p');
     footer.className = 'pdf-source';
     const link = doc.createElement('a');
-    link.href = new URL('./', document.baseURI).href;
+    link.href = playbookUrl;
     link.textContent = 'Full Install Playbook: ' + link.href;
     footer.append(link);
     doc.body.append(footer);
+
+    // Give plain headings a visible box while keeping existing fills and borders.
+    doc.body.querySelectorAll('h1,h2,h3,h4,h5,h6').forEach(title => {
+      const style = preview.getComputedStyle(title);
+      const hasFill = style.backgroundColor !== 'rgba(0, 0, 0, 0)' && style.backgroundColor !== 'transparent';
+      const hasBorder = ['Top', 'Right', 'Bottom', 'Left'].some(side =>
+        style['border' + side + 'Style'] !== 'none' && parseFloat(style['border' + side + 'Width']) > 0
+      );
+      if (!hasFill) {
+        title.style.backgroundColor = '#e7f1fb';
+        title.style.padding = '0.45em 0.65em';
+      }
+      if (!hasBorder) title.style.border = '1px solid #afc8e1';
+    });
+
     dialog.close();
     preview.focus();
     // Download a real PDF from the preview without opening the print dialog.
