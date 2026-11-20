@@ -149,16 +149,17 @@
     body.printing-mentor-checklist #contacts { display: block !important; padding: 0; }
     body.printing-mentor-checklist #onboarding { display: block !important; color: #172638; background: #fff; box-shadow: none; }
     body.printing-mentor-checklist .mentor-print-header {
-      display: block; margin: 0 0 1rem; padding: .7rem 1rem;
+      display: flex; align-items: center; flex-wrap: wrap; gap: .3rem 1rem;
+      margin: 0 0 .65rem; padding: .35rem .75rem;
       background: #1f2958; color: #fff; break-inside: avoid;
       print-color-adjust: exact; -webkit-print-color-adjust: exact;
     }
     .mentor-print-header img { display: block; width: 2.65in; max-width: 100%; height: auto; }
-    .mentor-print-header p { margin: .35rem 0 0; color: inherit; font-weight: 700; }
+    .mentor-print-header p { margin: 0; color: inherit; font-weight: 700; }
     body.printing-mentor-checklist .mentor-fields input,
     body.printing-mentor-checklist .mentor-fields textarea { display: none; }
     .mentor-print-value { display: block; white-space: pre-wrap; overflow-wrap: anywhere; font-weight: normal; }
-    .mentor-checks label, .mentor-fields label { break-inside: avoid; }
+    .mentor-checks label, .mentor-fields label, .mentor-follow-up { break-inside: avoid; }
     .mentor-fields { grid-template-columns: 1fr 1fr; }
   }
 </style>
@@ -5917,22 +5918,11 @@ ANTONIO - CORTAZAR CONSTUCTION - A.RODRIGUEZ CONSTRUCTION
         <label><input type="checkbox" name="welcome-bag"> Put together a welcome bag with hats, shirts, and other items from the closet, and give it to the team member.</label>
         <label><input type="checkbox" name="access"> Verify access to the Install Playbook, Install University, and role-specific tools such as AppWright.</label>
       </fieldset>
-      <fieldset class="mentor-checks">
-        <legend>Shadowing and practice</legend>
-        <label><input type="checkbox" name="standards"> Review the Playbook standards that apply to the team member’s department.</label>
-        <label><input type="checkbox" name="shadow"> Shadow the mentor through a typical job or service workflow from assignment to closeout.</label>
-        <label><input type="checkbox" name="documentation"> Practice documenting work, adding photos when required, and escalating an open issue.</label>
-        <label><input type="checkbox" name="demo"> Observe the team member perform a role-specific task and review the work together.</label>
-        <label><input type="checkbox" name="feedback"> Hold a check-in and record any training gaps or follow-up assignments.</label>
-      </fieldset>
-      <fieldset class="mentor-checks">
-        <legend>Assessment and handoff</legend>
-        <label><input type="checkbox" name="assessment"> Review the assigned Install University modules and record the assessment result.</label>
-        <label><input type="checkbox" name="next-step"> Review the result with the team member and manager. Continue shadowing if the score is below 90% and plan a retake.</label>
-        <label><input type="checkbox" name="sign-off"> Record mentor sign-off and any remaining follow-up.</label>
-      </fieldset>
+      <section class="mentor-follow-up">
+        <h4>After Orientation</h4>
+        <p>The team member will begin shadowing their assigned mentor to learn their role and will continue until they feel comfortable with their responsibilities.</p>
+      </section>
       <div class="mentor-fields">
-        <label>Assessment date<input type="date" name="assessment-date"></label>
         <label>Mentor sign-off<input type="text" name="mentor-signoff"></label>
         <label>Sign-off date<input type="date" name="signoff-date"></label>
         <label class="mentor-notes">Notes and follow-up<textarea rows="4" name="notes"></textarea></label>
@@ -5942,6 +5932,7 @@ ANTONIO - CORTAZAR CONSTUCTION - A.RODRIGUEZ CONSTRUCTION
         <button type="button" class="resource-link" id="mentor-new">Start new checklist</button>
       </div>
       <p id="mentor-status" class="mentor-screen" role="status"></p>
+      <p class="mentor-follow-up"><strong>Orientation mentor reminder.</strong> Share the completed PDF with the team member’s manager and the Install Manager so they can verify that Foundations training is completed and documented.</p>
     </form>
   </details>
 </div>
