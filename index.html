@@ -147,18 +147,19 @@
     body.printing-mentor-checklist #onboarding > summary,
     body.printing-mentor-checklist .mentor-screen { display: none !important; }
     body.printing-mentor-checklist #contacts { display: block !important; padding: 0; }
-    body.printing-mentor-checklist #onboarding { display: block !important; color: #172638; background: #fff; box-shadow: none; }
+    body.printing-mentor-checklist #onboarding { display: block !important; color: #000; background: #fff; box-shadow: none; }
     body.printing-mentor-checklist .mentor-print-header {
-      display: flex; align-items: center; flex-wrap: wrap; gap: .3rem 1rem;
-      margin: 0 0 .65rem; padding: .35rem .75rem;
-      background: #1f2958; color: #fff; break-inside: avoid;
-      print-color-adjust: exact; -webkit-print-color-adjust: exact;
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem;
+      margin: 0 0 .65rem; break-inside: avoid;
     }
-    .mentor-print-header img { display: block; width: 2.65in; max-width: 100%; height: auto; }
-    .mentor-print-header p { margin: 0; color: inherit; font-weight: 700; }
+    .mentor-print-header img { display: block; width: 2.65in; max-width: 55%; height: auto; filter: grayscale(1); }
+    .mentor-print-header p { margin: 0; color: #000; font-weight: 700; text-align: right; }
     body.printing-mentor-checklist .mentor-fields input,
     body.printing-mentor-checklist .mentor-fields textarea { display: none; }
     .mentor-print-value { display: block; white-space: pre-wrap; overflow-wrap: anywhere; font-weight: normal; }
+    .mentor-print-value:empty { min-height: 1.3rem; border-bottom: 1px solid #000; }
+    .mentor-notes .mentor-print-value:empty { min-height: 3rem; }
+    body.printing-mentor-checklist .mentor-checks input { accent-color: #000; }
     .mentor-checks label, .mentor-fields label, .mentor-follow-up { break-inside: avoid; }
     .mentor-fields { grid-template-columns: 1fr 1fr; }
   }
@@ -5889,7 +5890,7 @@ ANTONIO - CORTAZAR CONSTUCTION - A.RODRIGUEZ CONSTRUCTION
     <summary><strong>Orientation</strong></summary>
     <header class="mentor-print-header">
       <img src="assets/builders-firstsource-official-header.svg?v=20261105-vector" alt="Builders FirstSource" width="1516" height="378">
-      <p>Install Services</p>
+      <p>Outperform today.<br>Transform tomorrow.</p>
     </header>
     <h3>Mentor Orientation Checklist</h3>
     <p class="mentor-screen">Check off each item as it is covered. This browser saves one draft. Print or save a PDF before starting a new checklist.</p>
@@ -6970,7 +6971,7 @@ ANTONIO - CORTAZAR CONSTUCTION - A.RODRIGUEZ CONSTRUCTION
           if (field.type === 'checkbox') continue;
           const copy = document.createElement('span');
           copy.className = 'mentor-print-value';
-          copy.textContent = field.value || '—';
+          copy.textContent = field.value;
           field.after(copy);
         }
       });
