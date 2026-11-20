@@ -75,7 +75,8 @@ document.addEventListener('DOMContentLoaded', () => {
         img.removeAttribute('width');
         img.removeAttribute('height');
         img.removeAttribute('style');
-        img.setAttribute('data-pdfmake', JSON.stringify({fit: img.classList.contains('pdf-cover') ? [500, 95] : [500, 580]}));
+        img.setAttribute('data-pdfmake', JSON.stringify({fit: img.classList.contains('pdf-cover-compact') ? [150, 40]
+          : img.classList.contains('pdf-cover') ? [500, 95] : [500, 580]}));
       }
       // Capture the preview's colors and borders before converting the detached copy.
       const styledSelector = 'h1,h2,h3,h4,h5,h6,aside,mark,th';
@@ -296,6 +297,7 @@ document.addEventListener('DOMContentLoaded', () => {
       table{border-collapse:collapse;width:100%;font-size:11px;table-layout:auto}th,td{border:1px solid #adb9c5;padding:6px;overflow-wrap:anywhere}thead{display:table-header-group}tr{break-inside:avoid}
       pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{margin:20px 0}.pdf-source{font-size:12px;color:#526477}
       .table-scroll,.parts-table-wrap{overflow:visible!important}.pdf-cover{max-height:130px;width:100%!important;object-fit:contain}
+      .pdf-cover.pdf-cover-compact{width:200px!important;max-height:54px}
       h1,h2,h3,h4,h5,h6,aside,mark,th{print-color-adjust:exact;-webkit-print-color-adjust:exact}
       @page{size:letter;margin:.55in}
       @media print{body{max-width:none;margin:0;padding:0;color:#000}.pdf-toolbar{display:none}.pdf-selection+.pdf-selection{break-before:page}a{color:inherit;text-decoration:none}}
@@ -327,7 +329,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const image = doc.createElement('img');
       image.src = cover.src;
       image.alt = cover.alt;
-      image.className = 'pdf-cover';
+      image.className = contactsOnly ? 'pdf-cover pdf-cover-compact' : 'pdf-cover';
       doc.body.append(image);
     }
     const heading = doc.createElement('h1');
@@ -335,7 +337,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (contactsOnly) heading.className = 'pdf-plain-heading';
     const source = doc.createElement('p');
     source.className = 'pdf-source';
-    source.textContent = 'Selected sections • ' + new Date().toLocaleDateString('en-US');
+    source.textContent = (contactsOnly ? '' : 'Selected sections • ') + new Date().toLocaleDateString('en-US');
     doc.body.append(heading, source);
     selected.forEach(choice => {
       const section = doc.createElement('section');
@@ -349,7 +351,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const label = doc.createElement('p');
       label.className = 'pdf-source';
       label.textContent = [nameOf(tab), ...path].filter(Boolean).join(' › ');
-      section.append(label);
+      if (!contactsOnly) section.append(label);
       const clone = doc.importNode(choice.node, true);
       const styledSelector = 'h1,h2,h3,h4,h5,h6,summary,aside,mark,th';
       const originalStyles = [...choice.node.querySelectorAll(styledSelector)];
@@ -403,7 +405,7 @@ document.addEventListener('DOMContentLoaded', () => {
     link.href = playbookUrl;
     link.textContent = 'Full Install Playbook: ' + link.href;
     footer.append(link);
-    doc.body.append(footer);
+    if (!contactsOnly) doc.body.append(footer);
 
     doc.body.querySelectorAll('.pdf-plain-heading,.pdf-contacts :is(h1,h2,h3,h4,h5,h6,th)').forEach(title => {
       title.style.backgroundColor = 'transparent';
