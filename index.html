@@ -5447,69 +5447,6 @@ ANTONIO - CORTAZAR CONSTUCTION - A.RODRIGUEZ CONSTRUCTION
 <div id="contacts" class="tab">
   <h2>Contacts</h2>
 
-  <details id="onboarding">
-    <summary><strong>Onboarding</strong></summary>
-    <header class="mentor-print-header">
-      <img src="assets/builders-firstsource-official-header.svg?v=20261105-vector" alt="Builders FirstSource" width="1516" height="378">
-      <p>Install Services</p>
-    </header>
-    <h3>Mentor Onboarding Checklist</h3>
-    <p class="mentor-screen">Check off each item as it is covered. This browser saves one draft. Print or save a PDF before starting a new checklist.</p>
-    <form id="mentor-checklist">
-      <div class="mentor-fields">
-        <label>Team member name<input type="text" name="team-member"></label>
-        <label>Mentor name<input type="text" name="mentor"></label>
-        <label>Department / role<input type="text" name="department"></label>
-        <label>Start date<input type="date" name="start-date"></label>
-      </div>
-      <p id="mentor-progress" class="mentor-screen" role="status"></p>
-      <fieldset class="mentor-checks">
-        <legend>Pre-Orientation</legend>
-        <label><input type="checkbox" name="prep-login"> Confirm the team member’s login information and employee ID are ready.</label>
-        <label><input type="checkbox" name="prep-device"> Confirm whether they need a phone or tablet. If needed, make sure it is ready.</label>
-        <label><input type="checkbox" name="prep-truck"> Confirm whether they need a company truck. If needed, make sure it is ready.</label>
-        <label><input type="checkbox" name="prep-fleet"> If a company truck is assigned, verify it has been signed out in the BFS Fleet app.</label>
-        <label><input type="checkbox" name="prep-mentor"> Confirm their manager has a jobsite or office mentor ready for them after orientation.</label>
-      </fieldset>
-      <fieldset class="mentor-checks">
-        <legend>Orientation</legend>
-        <label><input type="checkbox" name="building-tour"> Show the team member around the building.</label>
-        <label><input type="checkbox" name="office-introductions"> Introduce the team member to the office team.</label>
-        <label><input type="checkbox" name="hall-of-fame"> Show the team member the Install Hall of Fame and talk about the team members featured there.</label>
-        <label><input type="checkbox" name="employee-login"> Go over the team member’s employee ID and login information.</label>
-        <label><input type="checkbox" name="expectations"> Review the role, work schedule, communication expectations, and the mentor shadowing plan.</label>
-        <label><input type="checkbox" name="foundations-training"> Have the team member go through Foundations and complete the training.</label>
-        <label><input type="checkbox" name="welcome-bag"> Put together a welcome bag with hats, shirts, and other items from the closet, and give it to the team member.</label>
-        <label><input type="checkbox" name="access"> Verify access to the Install Playbook, Install University, and role-specific tools such as AppWright.</label>
-      </fieldset>
-      <fieldset class="mentor-checks">
-        <legend>Shadowing and practice</legend>
-        <label><input type="checkbox" name="standards"> Review the Playbook standards that apply to the team member’s department.</label>
-        <label><input type="checkbox" name="shadow"> Shadow the mentor through a typical job or service workflow from assignment to closeout.</label>
-        <label><input type="checkbox" name="documentation"> Practice documenting work, adding photos when required, and escalating an open issue.</label>
-        <label><input type="checkbox" name="demo"> Observe the team member perform a role-specific task and review the work together.</label>
-        <label><input type="checkbox" name="feedback"> Hold a check-in and record any training gaps or follow-up assignments.</label>
-      </fieldset>
-      <fieldset class="mentor-checks">
-        <legend>Assessment and handoff</legend>
-        <label><input type="checkbox" name="assessment"> Review the assigned Install University modules and record the assessment result.</label>
-        <label><input type="checkbox" name="next-step"> Review the result with the team member and manager. Continue shadowing if the score is below 90% and plan a retake.</label>
-        <label><input type="checkbox" name="sign-off"> Record mentor sign-off and any remaining follow-up.</label>
-      </fieldset>
-      <div class="mentor-fields">
-        <label>Assessment date<input type="date" name="assessment-date"></label>
-        <label>Mentor sign-off<input type="text" name="mentor-signoff"></label>
-        <label>Sign-off date<input type="date" name="signoff-date"></label>
-        <label class="mentor-notes">Notes and follow-up<textarea rows="4" name="notes"></textarea></label>
-      </div>
-      <div class="mentor-actions mentor-screen">
-        <button type="button" class="resource-link" id="mentor-print">Print / Save as PDF</button>
-        <button type="button" class="resource-link" id="mentor-new">Start new checklist</button>
-      </div>
-      <p id="mentor-status" class="mentor-screen" role="status"></p>
-    </form>
-  </details>
-
    <details open>
     <summary><strong>Install Management</strong></summary>
     <table class="data-table">
@@ -5755,6 +5692,68 @@ ANTONIO - CORTAZAR CONSTUCTION - A.RODRIGUEZ CONSTRUCTION
         <tr><td>Town of Cary</td><td><a href="https://click2gov.townofcary.org/Click2GovBP/SelectPermit.jsp" target="_blank" rel="noopener noreferrer">click2gov.townofcary.org/Click2GovBP/SelectPermit.jsp</a></td></tr>
       </tbody>
     </table>
+  </details>
+  <details id="onboarding">
+    <summary><strong>Orientation</strong></summary>
+    <header class="mentor-print-header">
+      <img src="assets/builders-firstsource-official-header.svg?v=20261105-vector" alt="Builders FirstSource" width="1516" height="378">
+      <p>Install Services</p>
+    </header>
+    <h3>Mentor Orientation Checklist</h3>
+    <p class="mentor-screen">Check off each item as it is covered. This browser saves one draft. Print or save a PDF before starting a new checklist.</p>
+    <form id="mentor-checklist">
+      <div class="mentor-fields">
+        <label>Team member name<input type="text" name="team-member"></label>
+        <label>Mentor name<input type="text" name="mentor"></label>
+        <label>Department / role<input type="text" name="department"></label>
+        <label>Start date<input type="date" name="start-date"></label>
+      </div>
+      <p id="mentor-progress" class="mentor-screen" role="status"></p>
+      <fieldset class="mentor-checks">
+        <legend>Pre-Orientation</legend>
+        <label><input type="checkbox" name="prep-login"> Confirm the team member’s login information and employee ID are ready.</label>
+        <label><input type="checkbox" name="prep-device"> If the team member needs a phone or tablet, contact their manager to make sure it’s ready.</label>
+        <label><input type="checkbox" name="prep-truck"> If the team member needs a company truck, contact their manager to make sure it’s ready.</label>
+        <label><input type="checkbox" name="prep-fleet"> If a company truck is assigned, verify it has been signed out in the BFS Fleet app.</label>
+        <label><input type="checkbox" name="prep-mentor"> Confirm their manager has a jobsite or office mentor ready for them after orientation.</label>
+      </fieldset>
+      <fieldset class="mentor-checks">
+        <legend>Orientation</legend>
+        <label><input type="checkbox" name="building-tour"> Show the team member around the building.</label>
+        <label><input type="checkbox" name="office-introductions"> Introduce the team member to the office team.</label>
+        <label><input type="checkbox" name="hall-of-fame"> Show the team member the Install Hall of Fame and talk about the team members featured there.</label>
+        <label><input type="checkbox" name="employee-login"> Go over the team member’s employee ID and login information.</label>
+        <label><input type="checkbox" name="expectations"> Review the role, work schedule, communication expectations, and the mentor shadowing plan.</label>
+        <label><input type="checkbox" name="foundations-training"> Have the team member go through Foundations and complete the training.</label>
+        <label><input type="checkbox" name="welcome-bag"> Put together a welcome bag with hats, shirts, and other items from the closet, and give it to the team member.</label>
+        <label><input type="checkbox" name="access"> Verify access to the Install Playbook, Install University, and role-specific tools such as AppWright.</label>
+      </fieldset>
+      <fieldset class="mentor-checks">
+        <legend>Shadowing and practice</legend>
+        <label><input type="checkbox" name="standards"> Review the Playbook standards that apply to the team member’s department.</label>
+        <label><input type="checkbox" name="shadow"> Shadow the mentor through a typical job or service workflow from assignment to closeout.</label>
+        <label><input type="checkbox" name="documentation"> Practice documenting work, adding photos when required, and escalating an open issue.</label>
+        <label><input type="checkbox" name="demo"> Observe the team member perform a role-specific task and review the work together.</label>
+        <label><input type="checkbox" name="feedback"> Hold a check-in and record any training gaps or follow-up assignments.</label>
+      </fieldset>
+      <fieldset class="mentor-checks">
+        <legend>Assessment and handoff</legend>
+        <label><input type="checkbox" name="assessment"> Review the assigned Install University modules and record the assessment result.</label>
+        <label><input type="checkbox" name="next-step"> Review the result with the team member and manager. Continue shadowing if the score is below 90% and plan a retake.</label>
+        <label><input type="checkbox" name="sign-off"> Record mentor sign-off and any remaining follow-up.</label>
+      </fieldset>
+      <div class="mentor-fields">
+        <label>Assessment date<input type="date" name="assessment-date"></label>
+        <label>Mentor sign-off<input type="text" name="mentor-signoff"></label>
+        <label>Sign-off date<input type="date" name="signoff-date"></label>
+        <label class="mentor-notes">Notes and follow-up<textarea rows="4" name="notes"></textarea></label>
+      </div>
+      <div class="mentor-actions mentor-screen">
+        <button type="button" class="resource-link" id="mentor-print">Print / Save as PDF</button>
+        <button type="button" class="resource-link" id="mentor-new">Start new checklist</button>
+      </div>
+      <p id="mentor-status" class="mentor-screen" role="status"></p>
+    </form>
   </details>
 </div>
 
