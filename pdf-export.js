@@ -321,6 +321,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     toolbar.append(save, back, help);
     doc.body.append(toolbar);
+    const contactsOnly = selected.every(choice => choice.node.closest('.tab')?.id === 'contacts');
     const cover = document.querySelector('.hero-header-image');
     if (cover) {
       const image = doc.createElement('img');
@@ -330,7 +331,8 @@ document.addEventListener('DOMContentLoaded', () => {
       doc.body.append(image);
     }
     const heading = doc.createElement('h1');
-    heading.textContent = 'Install Playbook | Builders FirstSource Raleigh';
+    heading.textContent = contactsOnly ? 'Install Services' : 'Install Playbook | Builders FirstSource Raleigh';
+    if (contactsOnly) heading.className = 'pdf-plain-heading';
     const source = doc.createElement('p');
     source.className = 'pdf-source';
     source.textContent = 'Selected sections • ' + new Date().toLocaleDateString('en-US');
@@ -339,6 +341,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const section = doc.createElement('section');
       section.className = 'pdf-selection';
       const tab = choice.node.closest('.tab');
+      if (tab?.id === 'contacts') section.classList.add('pdf-contacts');
       const path = [];
       for (let parent = choice.node.parentElement; parent && parent !== tab; parent = parent.parentElement) {
         if (parent.matches('details')) path.unshift(parent.querySelector(':scope > summary')?.textContent.trim() || '');
@@ -402,8 +405,18 @@ document.addEventListener('DOMContentLoaded', () => {
     footer.append(link);
     doc.body.append(footer);
 
-    // Give plain headings a visible box while keeping existing fills and borders.
+    doc.body.querySelectorAll('.pdf-plain-heading,.pdf-contacts :is(h1,h2,h3,h4,h5,h6,th)').forEach(title => {
+      title.style.backgroundColor = 'transparent';
+      title.style.color = '#111';
+      if (!title.matches('th')) {
+        title.style.border = '0';
+        title.style.padding = '0';
+      }
+    });
+
+    // Give other headings a visible box while keeping existing fills and borders.
     doc.body.querySelectorAll('h1,h2,h3,h4,h5,h6').forEach(title => {
+      if (title.closest('.pdf-contacts') || title.classList.contains('pdf-plain-heading')) return;
       const style = preview.getComputedStyle(title);
       const hasFill = style.backgroundColor !== 'rgba(0, 0, 0, 0)' && style.backgroundColor !== 'transparent';
       const hasBorder = ['Top', 'Right', 'Bottom', 'Left'].some(side =>
