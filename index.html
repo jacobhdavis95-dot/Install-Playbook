@@ -142,8 +142,11 @@
   .mentor-print-value { display: none; }
   @media print {
     body.printing-mentor-checklist > :not(#playbook-content),
-    body.printing-mentor-checklist #playbook-content > :not(#onboarding),
+    body.printing-mentor-checklist #playbook-content > :not(#contacts),
+    body.printing-mentor-checklist #contacts > :not(#onboarding),
+    body.printing-mentor-checklist #onboarding > summary,
     body.printing-mentor-checklist .mentor-screen { display: none !important; }
+    body.printing-mentor-checklist #contacts { display: block !important; padding: 0; }
     body.printing-mentor-checklist #onboarding { display: block !important; color: #172638; background: #fff; box-shadow: none; }
     body.printing-mentor-checklist .mentor-fields input,
     body.printing-mentor-checklist .mentor-fields textarea { display: none; }
@@ -163,7 +166,6 @@
 </header>
 <div class="mobile-navigation"><label for="section-picker">Playbook section</label><select id="section-picker" onchange="showTab(this.value)">
 <option value="framing">Framing</option><option value="windowdoor">Window / Door</option><option value="trim">Trim</option><option value="services">Services</option><option value="safety">Safety</option><option value="contacts">Contacts</option><option value="ap">AP</option>
-<option value="onboarding">Onboarding</option>
 </select></div>
 <nav aria-label="Playbook sections">
    <button class="tab-btn active" data-tab="framing" onclick="showTab('framing')">
@@ -200,10 +202,6 @@
     <i data-lucide="dollar-sign"></i>
     <span>AP</span>
   </button> 
-  <button class="tab-btn" data-tab="onboarding" onclick="showTab('onboarding')">
-    <i data-lucide="clipboard-check"></i>
-    <span>Onboarding</span>
-  </button>
 </nav>
 <section class="playbook-search" aria-label="Search all playbook sections">
   <form id="search-form" role="search">
@@ -5316,6 +5314,54 @@ ANTONIO - CORTAZAR CONSTUCTION - A.RODRIGUEZ CONSTRUCTION
 <div id="contacts" class="tab">
   <h2>Contacts</h2>
 
+  <details id="onboarding">
+    <summary><strong>Onboarding</strong></summary>
+    <h3>Mentor Onboarding Checklist</h3>
+    <p class="mentor-screen">Check off each item as it is covered. This browser saves one draft. Print or save a PDF before starting a new checklist.</p>
+    <form id="mentor-checklist">
+      <div class="mentor-fields">
+        <label>Team member name<input type="text" name="team-member"></label>
+        <label>Mentor name<input type="text" name="mentor"></label>
+        <label>Department / role<input type="text" name="department"></label>
+        <label>Start date<input type="date" name="start-date"></label>
+      </div>
+      <p id="mentor-progress" class="mentor-screen" role="status"></p>
+      <fieldset class="mentor-checks">
+        <legend>Day 1 · Orientation</legend>
+        <label><input type="checkbox" name="introductions"> Introduce the team and review who to contact for scheduling, safety, and escalations.</label>
+        <label><input type="checkbox" name="expectations"> Review the role, work schedule, communication expectations, and the mentor shadowing plan.</label>
+        <label><input type="checkbox" name="safety"> Review site safety, PPE, stop-work expectations, and how to report an incident or near miss.</label>
+        <label><input type="checkbox" name="access"> Verify access to the Install Playbook, Install University, and role-specific tools such as AppWright.</label>
+      </fieldset>
+      <fieldset class="mentor-checks">
+        <legend>Days 2–13 · Shadowing and practice</legend>
+        <label><input type="checkbox" name="standards"> Review the Playbook standards that apply to the team member’s department.</label>
+        <label><input type="checkbox" name="shadow"> Shadow the mentor through a typical job or service workflow from assignment to closeout.</label>
+        <label><input type="checkbox" name="documentation"> Practice documenting work, adding photos when required, and escalating an open issue.</label>
+        <label><input type="checkbox" name="demo"> Observe the team member perform a role-specific task and review the work together.</label>
+        <label><input type="checkbox" name="feedback"> Hold a check-in and record any training gaps or follow-up assignments.</label>
+      </fieldset>
+      <fieldset class="mentor-checks">
+        <legend>Day 14 · Assessment and handoff</legend>
+        <label><input type="checkbox" name="assessment"> Review the assigned Install University modules and record the 14-day assessment result.</label>
+        <label><input type="checkbox" name="next-step"> Review the result with the team member and manager. Continue shadowing if the score is below 90% and plan a retake.</label>
+        <label><input type="checkbox" name="sign-off"> Record mentor sign-off and any remaining follow-up.</label>
+      </fieldset>
+      <div class="mentor-fields">
+        <label>Assessment date<input type="date" name="assessment-date"></label>
+        <label>Assessment score (%)<input type="number" inputmode="decimal" min="0" max="100" step="any" name="score"></label>
+        <label>Mentor sign-off<input type="text" name="mentor-signoff"></label>
+        <label>Sign-off date<input type="date" name="signoff-date"></label>
+        <label class="mentor-notes">Notes and follow-up<textarea rows="4" name="notes"></textarea></label>
+      </div>
+      <div class="mentor-actions mentor-screen">
+        <button type="button" class="resource-link" id="mentor-print">Print / Save as PDF</button>
+        <button type="button" class="resource-link" id="mentor-new">Start new checklist</button>
+      </div>
+      <p id="mentor-status" class="mentor-screen" role="status"></p>
+    </form>
+  </details>
+
    <details open>
     <summary><strong>Install Management</strong></summary>
     <table class="data-table">
@@ -6512,53 +6558,6 @@ ANTONIO - CORTAZAR CONSTUCTION - A.RODRIGUEZ CONSTRUCTION
     
 </div>
 
-<div id="onboarding" class="tab">
-  <h2>Mentor Onboarding Checklist</h2>
-  <p class="mentor-screen">Check off each item as it is covered. This browser saves one draft. Print or save a PDF before starting a new checklist.</p>
-  <form id="mentor-checklist">
-    <div class="mentor-fields">
-      <label>Team member name<input type="text" name="team-member"></label>
-      <label>Mentor name<input type="text" name="mentor"></label>
-      <label>Department / role<input type="text" name="department"></label>
-      <label>Start date<input type="date" name="start-date"></label>
-    </div>
-    <p id="mentor-progress" class="mentor-screen" role="status"></p>
-    <fieldset class="mentor-checks">
-      <legend>Day 1 · Orientation</legend>
-      <label><input type="checkbox" name="introductions"> Introduce the team and review who to contact for scheduling, safety, and escalations.</label>
-      <label><input type="checkbox" name="expectations"> Review the role, work schedule, communication expectations, and the mentor shadowing plan.</label>
-      <label><input type="checkbox" name="safety"> Review site safety, PPE, stop-work expectations, and how to report an incident or near miss.</label>
-      <label><input type="checkbox" name="access"> Verify access to the Install Playbook, Install University, and role-specific tools such as AppWright.</label>
-    </fieldset>
-    <fieldset class="mentor-checks">
-      <legend>Days 2–13 · Shadowing and practice</legend>
-      <label><input type="checkbox" name="standards"> Review the Playbook standards that apply to the team member’s department.</label>
-      <label><input type="checkbox" name="shadow"> Shadow the mentor through a typical job or service workflow from assignment to closeout.</label>
-      <label><input type="checkbox" name="documentation"> Practice documenting work, adding photos when required, and escalating an open issue.</label>
-      <label><input type="checkbox" name="demo"> Observe the team member perform a role-specific task and review the work together.</label>
-      <label><input type="checkbox" name="feedback"> Hold a check-in and record any training gaps or follow-up assignments.</label>
-    </fieldset>
-    <fieldset class="mentor-checks">
-      <legend>Day 14 · Assessment and handoff</legend>
-      <label><input type="checkbox" name="assessment"> Review the assigned Install University modules and record the 14-day assessment result.</label>
-      <label><input type="checkbox" name="next-step"> Review the result with the team member and manager. Continue shadowing if the score is below 90% and plan a retake.</label>
-      <label><input type="checkbox" name="sign-off"> Record mentor sign-off and any remaining follow-up.</label>
-    </fieldset>
-    <div class="mentor-fields">
-      <label>Assessment date<input type="date" name="assessment-date"></label>
-      <label>Assessment score (%)<input type="number" inputmode="decimal" min="0" max="100" step="any" name="score"></label>
-      <label>Mentor sign-off<input type="text" name="mentor-signoff"></label>
-      <label>Sign-off date<input type="date" name="signoff-date"></label>
-      <label class="mentor-notes">Notes and follow-up<textarea rows="4" name="notes"></textarea></label>
-    </div>
-    <div class="mentor-actions mentor-screen">
-      <button type="button" class="resource-link" id="mentor-print">Print / Save as PDF</button>
-      <button type="button" class="resource-link" id="mentor-new">Start new checklist</button>
-    </div>
-    <p id="mentor-status" class="mentor-screen" role="status"></p>
-  </form>
-</div>
-
 </main>
 
   <script src="mi-parts.js"></script>
@@ -6609,6 +6608,10 @@ ANTONIO - CORTAZAR CONSTUCTION - A.RODRIGUEZ CONSTRUCTION
       }
 
       try {
+        if (localStorage.getItem('install-playbook.last-tab') === 'onboarding') {
+          localStorage.setItem('install-playbook.last-tab', 'contacts');
+          document.getElementById('onboarding').open = true;
+        }
         const draft = JSON.parse(localStorage.getItem(key)) ?? {};
         for (const field of fields) {
           const value = draft[field.name];
@@ -6631,8 +6634,7 @@ ANTONIO - CORTAZAR CONSTUCTION - A.RODRIGUEZ CONSTRUCTION
       });
 
       window.addEventListener('beforeprint', () => {
-        if (!document.getElementById('onboarding').classList.contains('active')) return;
-        document.body.classList.add('printing-mentor-checklist');
+        if (!document.body.classList.contains('printing-mentor-checklist')) return;
         for (const field of fields) {
           if (field.type === 'checkbox') continue;
           const copy = document.createElement('span');
@@ -6646,7 +6648,10 @@ ANTONIO - CORTAZAR CONSTUCTION - A.RODRIGUEZ CONSTRUCTION
         document.body.classList.remove('printing-mentor-checklist');
         for (const copy of form.querySelectorAll('.mentor-print-value')) copy.remove();
       });
-      document.getElementById('mentor-print').addEventListener('click', () => window.print());
+      document.getElementById('mentor-print').addEventListener('click', () => {
+        document.body.classList.add('printing-mentor-checklist');
+        window.print();
+      });
     })();
   </script>
 </body>
