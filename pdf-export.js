@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       await loadPdfLibraries();
       const doc = preview.document;
+      const contactsOnly = doc.body.classList.contains('pdf-contacts-only');
       const printable = doc.body.cloneNode(true);
       printable.querySelectorAll('.pdf-toolbar').forEach(node => node.remove());
       // Embed actual image bytes so the downloaded PDF does not depend on image URLs.
@@ -75,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
         img.removeAttribute('width');
         img.removeAttribute('height');
         img.removeAttribute('style');
-        img.setAttribute('data-pdfmake', JSON.stringify({fit: img.classList.contains('pdf-cover-compact') ? [150, 40]
+        img.setAttribute('data-pdfmake', JSON.stringify({alignment: img.classList.contains('pdf-cover-compact') ? 'center' : undefined, fit: img.classList.contains('pdf-cover-compact') ? [150, 40]
           : img.classList.contains('pdf-cover') ? [500, 95] : [500, 580]}));
       }
       // Capture the preview's colors and borders before converting the detached copy.
@@ -100,6 +101,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         const box = !node.matches('mark,th') && (hasFill || borders.some(Boolean));
         const data = {color: pdfColor(style.color)};
+        if (node.matches('.pdf-plain-heading')) data.alignment = 'center';
+        if (node.matches('.pdf-contacts th')) data.fillColor = '#ffffff';
         if (box) {
           data.playbookBox = {
             fillColor: hasFill ? pdfColor(background) : undefined,
@@ -144,7 +147,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (styles.some(style => /^html-h[1-6]$/.test(style || ''))) value.headlineLevel = 1;
         if (value.table?.body?.length) {
           value.table.widths = Array(value.table.body[0].length).fill('*');
-          value.fontSize = 8;
+          if (contactsOnly && value.table.widths.length === 5) value.table.widths = [70, 94, 110, 82, '*'];
+          value.fontSize = contactsOnly ? 9 : 8;
           value.layout ??= {
             hLineColor: () => '#adb9c5',
             vLineColor: () => '#adb9c5'
@@ -180,12 +184,12 @@ document.addEventListener('DOMContentLoaded', () => {
       sizeTables(converted);
       const definition = {
         pageSize: 'LETTER', pageMargins: [40, 40, 40, 45],
-        info: {title: 'Install Playbook — Selected Sections', author: 'Builders FirstSource Raleigh'},
+        info: {title: contactsOnly ? 'Install Services Contacts' : 'Install Playbook — Selected Sections', author: 'Builders FirstSource Raleigh'},
         defaultStyle: {font: 'Roboto', fontSize: 10, lineHeight: 1.25, color: '#142c45'},
         content: converted,
         pageBreakBefore: (node, following) => Boolean(node.headlineLevel && following.length === 0),
         footer: (page, pages) => ({
-          columns: [
+          columns: contactsOnly ? [{text: page + ' / ' + pages, alignment: 'center'}] : [
             {text: 'Back to Playbook', link: playbookUrl, decoration: 'underline', color: '#12548a', width: '*'},
             {text: page + ' / ' + pages, alignment: 'center', width: 'auto'},
             {text: '', width: '*'}
@@ -297,12 +301,15 @@ document.addEventListener('DOMContentLoaded', () => {
       table{border-collapse:collapse;width:100%;font-size:11px;table-layout:auto}th,td{border:1px solid #adb9c5;padding:6px;overflow-wrap:anywhere}thead{display:table-header-group}tr{break-inside:avoid}
       pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{margin:20px 0}.pdf-source{font-size:12px;color:#526477}
       .table-scroll,.parts-table-wrap{overflow:visible!important}.pdf-cover{max-height:130px;width:100%!important;object-fit:contain}
-      .pdf-cover.pdf-cover-compact{width:200px!important;max-height:54px}
+      .pdf-cover.pdf-cover-compact{display:block;width:200px!important;max-height:54px;margin-inline:auto}
+      .pdf-contacts-only .pdf-plain-heading,.pdf-contacts-only > .pdf-source{text-align:center}
       h1,h2,h3,h4,h5,h6,aside,mark,th{print-color-adjust:exact;-webkit-print-color-adjust:exact}
       @page{size:letter;margin:.55in}
       @media print{body{max-width:none;margin:0;padding:0;color:#000}.pdf-toolbar{display:none}.pdf-selection+.pdf-selection{break-before:page}a{color:inherit;text-decoration:none}}
     `;
     doc.head.append(style);
+    const contactsOnly = selected.every(choice => choice.node.closest('.tab')?.id === 'contacts');
+    if (contactsOnly) doc.body.classList.add('pdf-contacts-only');
     const toolbar = doc.createElement('div');
     toolbar.className = 'pdf-toolbar';
     const save = doc.createElement('button');
@@ -321,9 +328,10 @@ document.addEventListener('DOMContentLoaded', () => {
         preview.close();
       }
     });
-    toolbar.append(save, back, help);
+    toolbar.append(save);
+    if (!contactsOnly) toolbar.append(back);
+    toolbar.append(help);
     doc.body.append(toolbar);
-    const contactsOnly = selected.every(choice => choice.node.closest('.tab')?.id === 'contacts');
     const cover = document.querySelector('.hero-header-image');
     if (cover) {
       const image = doc.createElement('img');
